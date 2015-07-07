@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<games>
+<game>
+	<name>Front Invaders</name>
+	<id>frontinvaders</id>
+	<img>front-invaders.jpg</img>
+	<link>http://end3r.com/games/frontinvaders/</link>
+</game>
+<game>
+	<name>Angry Birds</name>
+	<id>angrybirds</id>
+	<img>angry-birds-chrome.jpg</img>
+	<link>http://chrome.angrybirds.com/</link>
+</game>
+<game>
+	<name>3Bored</name>
+	<id>3bored</id>
+	<img>3bored.jpg</img>
+	<link>http://upsidedownturtle.com/boredboredbored/</link>
+</game>
+<game>
+	<name>Canvas Defence</name>
+	<id>canvasdefence</id>
+	<img>canvas-defense.jpg</img>
+	<link>http://canvasdefense.appspot.com/</link>
+</game>
+<game>
+	<name>Crystal Galaxy</name>
+	<id>crystalgalaxy</id>
+	<img>crystal-galaxy.jpg</img>
+	<link>http://www.effectgames.com/effect/games/crystalgalaxy/</link>
+</game>
+<game>
+	<name>My Game</name>
+	<id>mygame</id>
+	<img>mygame.png</img>
+	<link>./mygame.html</link>
+</game>
+</games>
