@@ -1,4 +1,4 @@
-SASS使用心得
+Why I use Sass
 ===
 by linden5
 
