@@ -1,42 +1,42 @@
-Why I use Sass
+Why I use Sass in a non sass project
 ===
 by linden5
 
 ---
 
-## 1.	最初的目的: 避免CSS冲突
+## 1.	Original purpose: avoid CSS conflict
 
-单页面应用，然而其前端框架中并没有任何防止样式冲突的机制。因此在工作的过程中，如果两个人定义的样式起了冲突，很可能会出现其中一个人不明不白地将另一个人的样式删除的情况。为了避免这种麻烦，我想到了之前的做法：
+My original purpose of using sass was actually to prevent CSS conflict in a single-page H5 app. The mentioned project didn't use any framework or technique to prevent css conflit, nor did it use sass. What makes things more complicated was that I found some colleagues had a habbit to modify others' code regardless of whether others' style were functioning properly. Since I had some limited experience of using sass, I came up with the following idea:
 
->**将我写的页面用一个div包围起来，取一个不与任何人的页面冲突的class名，所有css选择器前面多加一个class选择器。**
+>**Wrap my page with a nonconflicting class and add this class selector before all my style definitions**
 
-这样一来，我的样式就不会和别人冲突了，基本杜绝了我的样式被别人改掉的可能性，而且因为选择器加了一层，我也可以更灵活地使用同事写的样式。
+This would make my style conflict-free and prevent others from modifying my CSS file as well as providing flexibility to style reuse of others work.
 
-然而非常不幸的是，在想到要这么做之前，我的CSS文件已经写了很长了，因此我决定直接用SASS，这样就只用在最外层嵌套一层选择器就可以了。
+Unfortunately, before I decided to do this, my CSS file had already grown a little to big. In order to make things easier, I chose to use sass privately.
 
->**不管别人用不用、项目用不用，反正我是用了**
+>**No matter what the requirement of the project is, I would use sass.**
 
-![最外层嵌套一个class选择器](/img/outer_selector.png)
+![an outer selector](/img/outer_selector.png)
 
-## 2. 一不做，二不休
+## 2. Once started, do more
 
-既然已经上了SASS这条船了，之前的纯CSS代码就变得令人无法忍受了。
+Once I started using sass, pure css became intolerable.
 
-一般来说，使用纯CSS的时候，会对一些常用的样式定义一个选择器以方便样式复用，比如下面这样：
+When using pure css, some frequently used style is usually bond to a single selector to make it resusable. Just as following:
 
 	.hide { display: none; }
 	.f_right { float: right; }
 	.blue { background: #16b0f4}
 	
-这样的写法很方便样式的复用，比如2期，就把这种方式用到了极致：
+I've seen a project that made this to its extreme:
 
-![交费助手2期html代码](/img/pay2_page_sample.png)
+![shocking html](/img/pay2_page_sample.png)
 
-说实话，第一次看到这样的html代码，我被吓到了，也被吓到了。
+To tell you the truth, I was shocked the first time I saw it.
 
-3期的页面放弃了这种做法，改用了更容易被大家接受的语义化的class命名方法，CSS选择器也没有这么碎片化了，然而对于字体颜色之类的，页面边距之类的，还是不免要单独定义一个class以便于样式复用。
+In more semantic practice, such definitions are also necessary.
 
-既然已经使用了SASS，显然放弃原来纯CSS的方法，用SASS的方法来实现样式的复用更好，于是我把自己的CSS文件中类似上面的针对单条样式声明定义一个选择器的做法，改成了使用SASS变量代替：
+Since I had began to use Sass, it was better to replace such definition with Sass variables:
 
 	$stripHeight: 1.458333rem;
 	$listItemHeight: 1.25rem;
@@ -46,45 +46,50 @@ by linden5
 	$borderColor: #E6E6E6;
 	$themeColor: #16b0f4;
 	
-于是样式就写成了这样：
+So my SCSS file became to this:
 
-![SASS变量](/img/sample_var.png)
+![SASS var](/img/sample_var.png)
 
-对于多个选择器共用同样的样式声明*(这种情况的出现可能与我个人CSS结构掌控能力不足有关)*，比如下面这样的:
+When it came to some selectors that share the same style,*(due to my lack of css structuring ability)*, for example, like this:
 
 	.white-bar,
 	.white-bar-heigher,
-	.white-bar-nobottom-border
+	.white-bar-nobottom-border {
+        ...
+    }
 	
-就可以使用mixin来代替:
+can be replaced by mixin:
 
 ![mixin](/img/sample_mixin.png)
 
-结合继承一起使用，看起来就是这样的
+used with inheritance, it look like this:
 
-![继承与mixin](/img/sample_inherit.png)
+![inherit & mixin](/img/sample_inherit.png)
 
-## 3. 不想写JavaScript
+## 3. No more JavaScript
 
-模块里面有这样的一个需求：
+The was a requirement:
 
->**显示记录，如果记录超过4个，只显示4个，其余的在显示区域滑动显示**
->效果图如下：
+>**To show up to 4 record each time. If there are more, let it scroll-y**
+>like the following：
 >
->![效果图](/img/sample_overflow.png)
+>![how's it like](/img/sample_overflow.png)
 
-其实也就是一个overflow-y:scroll的问题，问题是，需要给这个区域定个高度，高度是多少要自己算。所以，交给SASS吧；
+To let it scroll, use `overflow-y:scroll`, to calculate its height, leave it to SASS:
 
-![计算](/img/sample_calculate.png)
+![cal](/img/sample_calculate.png)
 
-有两个样式其实样试声明一样，只是值不同怎么办？写个函数吧
+some selectors share nearly the same style but with different values? Use function instead:
 
 
-![函数](/img/sample_func.png)
-![函数](/img/sample_func2.png)
+![func](/img/sample_func.png)
+![func](/img/sample_func2.png)
 
-两行文字都继承了父元素的line-height，但这两行的间距又有特别的要求？懒得改html结构了，让SASS帮你算吧
+Two lines of text inherited line-height properties from parent，but should have a different margin? No need to refactor html, leave it to sass
 
-![函数](/img/sample_line.png)
+![cal](/img/sample_line.png)
 
-## 4. 一但用过一次SASS，就根本停不下来！
+## 4. Once you have started using sass, you don't want to stop.
+
+Here comes the question: why didn't the project leader switch to sass when it has already been widely used for several years?
+---
