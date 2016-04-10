@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<script>
+var p1 = new Promise(function(resolve, reject) {
+        var data = "11111111";
+        resolve(data);
+        // reject(data);
+    }),
+
+    p2 = new Promise(function(resolve, reject) {
+        var data = "22222222";
+        resolve(data);
+        // reject(data);
+    });
+
+var success = function(data) {
+        console.log("===================");
+        console.log(data + "---success");
+        return p2;
+    },
+
+    fail = function(data) {
+        console.log("===================");
+        console.log(data + "---fail");
+        return p2;
+    };
+
+console.log("Promise start");
+
+p1.then(success, fail)
+.then(success, fail);
+</script>
+</html>
+

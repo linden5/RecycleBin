@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<script src="jquery-1.11.3.js"></script>
+<script>
+var p1 = $.Deferred(function( dtd ) {
+        var data = "11111111";
+        dtd.resolve(data);
+        // dtd.reject(data);
+    }),
+
+    p2 = $.Deferred(function( dtd ) {
+        var data = "22222222";
+        dtd.resolve(data);
+        // dtd.reject(data);
+    });
+
+var success = function(data) {
+        console.log("===================");
+        console.log(data + "---success");
+        return p2;
+    },
+
+    fail = function(data) {
+        console.log("===================");
+        console.log(data + "---fail");
+        return p2;
+    };
+
+console.log("jquery Deferred start");
+
+p1.then(success, fail)
+.then(success, fail);
+</script>
+</html>
