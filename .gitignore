@@ -43,3 +43,5 @@ Temporary Items
 .apdisk
 /chatApp/*.class
 /dataStructure_java/*.class
+/nodejs/node_modules
+/nodejs/tmp
