@@ -45,3 +45,6 @@ Temporary Items
 /dataStructure_java/*.class
 /nodejs/node_modules
 /nodejs/tmp
+/nodejs/craftman/node_modules
+node_modules
+tmp
