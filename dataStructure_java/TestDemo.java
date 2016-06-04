@@ -30,7 +30,6 @@ public class TestDemo {
 
     // MyLinkedList Test
     public static void myStackTest() {
-        String exp = "1 + 2 * ( 2 + 4 ) - 6 / 3";
         MyStack myStack = new MyStack();
         myStack.push("hello");
         myStack.push("world");
@@ -40,9 +39,18 @@ public class TestDemo {
         System.out.println(myStack.pop());
     }
 
-    public static void main( String[] args ) {
+    public static void arithmeticTest() throws Exception{
+        String exp = "1 +12* (4 -2) + 8 /2";
+        System.out.println("Original:" + exp);
+        String revPolish = FourOperations.reversePolishString(exp);
+        System.out.println("Reverse Polish:" + revPolish);
+        System.out.println("Result:" + FourOperations.calculate(exp));
+    }
+
+    public static void main( String[] args ) throws Exception{
         // myArrayListTest();
         // myLinkedListTest();
-        myStackTest();
+        // myStackTest();
+        arithmeticTest();
     }
 }
