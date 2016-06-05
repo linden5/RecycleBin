@@ -1,3 +1,5 @@
+package me.list;
+
 public class MyLinkedQueue<Anytype> {
     private int theSize;
     private Node<Anytype> head;

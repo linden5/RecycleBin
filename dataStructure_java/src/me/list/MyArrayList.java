@@ -1,3 +1,5 @@
+package me.list;
+
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
@@ -64,6 +66,13 @@ public class MyArrayList<AnyType> implements Iterable<AnyType> {
         theItems[ idx ] = x;
 
         theSize++;
+    }
+
+    public void addAll( Iterable<? extends AnyType> items ) {
+        Iterator<? extends AnyType> it = items.iterator();
+        while( it.hasNext() ) {
+            add( it.next() );
+        }
     }
 
     public AnyType remove( int idx ) {

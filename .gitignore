@@ -48,3 +48,4 @@ Temporary Items
 /nodejs/craftman/node_modules
 node_modules
 tmp
+bin

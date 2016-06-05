@@ -1,3 +1,5 @@
+package me.list;
+
 public class MyArrayQueue<T> {
     private static final int DEFAULT_CAPACITY = 10;
     private T[] theItems;
