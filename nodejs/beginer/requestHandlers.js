@@ -5,7 +5,7 @@ var formidable = require("formidable");
 
 function start(response) {
     console.log("The request handler 'start' is called.");
-    // exec("find /", { timeout: 10000, maxBuffer: 20000 * 1024 }, 
+    // exec("dir", { timeout: 10000, maxBuffer: 20000 * 1024 }, 
     //     function(error, stdout, stderr) {
     //         console.log("hehe: " + stdout);
     //         response.writeHead(200, {"Content-type": "text/plain"});
