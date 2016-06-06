@@ -1,8 +1,9 @@
 "use strict";
 
-var FilesizeWatcher = require("./FilesizeWatcher");
+var FilesizeWatcher = require("../src/FilesizeWatcher");
 var exec = require("child_process").exec;
 
+var path = "D:\\Resource_E\\github_repo\\else_practice\\nodejs\\craftman\\tmp\\filesizewatcher.test";
 describe("FilesizeWatcher", function() {
     var watcher;
 
@@ -11,13 +12,12 @@ describe("FilesizeWatcher", function() {
     });
 
     it("should fire a 'grew' event when the file grew in size", function(done) {
-
-        var path = "/var/tmp/filesizewatcher.test";
-        exec("del /F " + path + " ; touch " + path, function() {
+        exec("del " + path);
+        exec("echo 'a' > " + path, function() {
             watcher = new FilesizeWatcher(path);
 
             watcher.on("grew", function(gain) {
-                expect(gain).toBe(5);
+                expect(gain).toBe(3);
                 done();
             });
 
@@ -27,8 +27,8 @@ describe("FilesizeWatcher", function() {
 
     it("should fire a 'shrank' event when the file decrease in size", function(done) {
 
-        var path = "/var/tmp/filesizewatcher.test";
-        exec("rm -f " + path + " ; echo 'test' > " + path, function() {
+        exec("del " + path);
+        exec("echo 'test' > " + path, function() {
             watcher = new FilesizeWatcher(path);
 
             watcher.on("shrank", function(loss) {
@@ -42,7 +42,7 @@ describe("FilesizeWatcher", function() {
 
     it("should fire a 'error' event if path doesn't start with a slash", function(done) {
 
-        var path = "var/tmp/filesizewatcher.test";
+        path = "afad";
         watcher = new FilesizeWatcher(path);
 
         watcher.on("error", function(err) {
