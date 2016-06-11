@@ -50,13 +50,6 @@ public class ExpTree {
         System.out.println(tree.element);
     }
 
-    private void preOrderPrint( BinaryNode<Character> tree ) {
-        if ( tree == null ) return;
-        System.out.println(tree.element);
-        preOrderPrint(tree.left);
-        preOrderPrint(tree.right);
-    }
-
     private void inOrderPrint( BinaryNode<Character> tree ) {
         if ( tree == null ) return;
         inOrderPrint(tree.left);
