@@ -1,5 +1,7 @@
 {
     "devDependencies": {
-        "jasmine-node": ""
+        "jasmine-node": "",
+        "request": "",
+        "async": ""
     }
 }
