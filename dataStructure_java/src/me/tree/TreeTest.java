@@ -1,5 +1,7 @@
 package me.tree;
 
+import java.util.*;
+
 public class TreeTest {
     public static void binaryTreeTest() {
         BinarySearchTree<Integer> bt = new BinarySearchTree<Integer>();
@@ -38,9 +40,28 @@ public class TreeTest {
         bt.printAvlTree();
     }
 
+    public static void wordCountTest() {
+        ArrayList<String> lst = new ArrayList<String>();
+        lst.add("wine");
+        lst.add("fine");
+        lst.add("line");
+        lst.add("pine");
+        lst.add("wind");
+        lst.add("find");
+        lst.add("nine");
+        lst.add("vine");
+        Map<String, List<String>> mp = WordCount.computedAdjacentWords(lst);
+        WordCount.printHighChangeables(mp, 2);
+        mp = WordCount.computedAdjacentWords2(lst);
+        WordCount.printHighChangeables(mp, 2);
+        mp = WordCount.computedAdjacentWords3(lst);
+        WordCount.printHighChangeables(mp, 2);
+    }
+
     public static void main(String[] args) {
         // binaryTreeTest();
         // expressionTreeTest();
-        avlTreeTest();
+        // avlTreeTest();
+        wordCountTest();
     }
 }
