@@ -8,10 +8,26 @@ MongoClient.connect(
         var collection = connection.collection("customers");
 
         var doFind = function(callback) {
-            collection.find().toArray(function(err, documents) {
-                console.dir(documents);
-                callback();
-            });            
+            collection.find(
+                {
+                    "v": {"$gt":1}, 
+                    "$or":[
+                        {"n":"#5"}, 
+                        {"n": "#10"}
+                    ]
+                }/*, 
+                {
+                    "limit": 5,
+                    "skip": 2,
+                    "sort": [{"v": "asc"}, {"n": "desc"}]
+                }*/).toArray(function(err, documents) {
+                    console.dir(documents);
+                    callback();
+                }); 
+            // collection.find().toArray(function(err, documents) {
+            //     console.dir(documents);
+            //     callback();
+            // });            
         };
 
         var doInsert = function(i) {
