@@ -58,10 +58,27 @@ public class TreeTest {
         WordCount.printHighChangeables(mp, 2);
     }
 
+    public static void splayTreeTest() {
+        SplayTree<Integer> lst = new SplayTree<Integer>();
+        lst.insert(1);
+        lst.insert(2);
+        lst.insert(10);
+        lst.insert(4);
+        lst.insert(3);
+        lst.insert(6);
+        lst.insert(7);
+        lst.insert(8);
+        lst.print();
+        System.out.println("------");
+        lst.visit(8);
+        lst.print();
+    }
+
     public static void main(String[] args) {
         // binaryTreeTest();
         // expressionTreeTest();
         // avlTreeTest();
-        wordCountTest();
+        // wordCountTest();
+        splayTreeTest();
     }
 }

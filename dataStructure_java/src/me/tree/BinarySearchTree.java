@@ -1,7 +1,7 @@
 package me.tree;
 
 public class BinarySearchTree<AnyType extends Comparable<? super AnyType>> {
-    private BinaryNode<AnyType> root;
+    protected BinaryNode<AnyType> root;
 
     public BinarySearchTree() {
         root = null;
@@ -140,7 +140,7 @@ public class BinarySearchTree<AnyType extends Comparable<? super AnyType>> {
         }
     }
 
-    private static class BinaryNode<AnyType> {
+    protected static class BinaryNode<AnyType> {
         AnyType element;           // Data in the node
         BinaryNode<AnyType> left;  // Left child
         BinaryNode<AnyType> right; // Right child
