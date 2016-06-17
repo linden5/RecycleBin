@@ -2,10 +2,30 @@
 
 var request = require("request");
 var dbSession = require("../../src/backend/dbSession.js");
+var Server = require("../../src/backend/server.js").Server;
 var resetDatabase = require("../resetDatabase.js");
 var async = require("async");
 
 describe("The API", function() {
+    var server;
+
+    beforeEach(function(done) {
+        server = Server(8081);
+        server.listen(function(err) {
+            resetDatabase(dbSession, function() {
+                done(err);
+            });
+        });
+    });
+
+    afterEach(function(done) {
+        server.close(function() {
+            resetDatabase(dbSession, function() {
+                done();
+            });            
+        });
+    });
+
     it("should respond to a GET request at /api/keywords/", function(done) {
         var expected = {
             "_items": [
@@ -16,10 +36,6 @@ describe("The API", function() {
         };
 
         async.series([
-            function(callback) {
-                resetDatabase(dbSession, callback);
-            },
-
             function(callback) {
                 console.log("----------------");
                 console.log("insert Aubergine");
@@ -51,15 +67,16 @@ describe("The API", function() {
                         callback(err)});
             }
         ], function(err, results) {
+            if (err) throw(err);
             console.log("------------------");
             console.log("Send get");
             request.get(
                 {
-                    "url": "http://localhost:8080/api/keywords",
+                    "url": "http://localhost:8081/api/keywords",
                     "json": true
                 },
                 function(err, res, body) {
-                    console.log(err);
+                    console.log("Response received");
                     expect(res.statusCode).toBe(200);
                     expect(body).toEqual(expected);
                     done();

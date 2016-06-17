@@ -1,0 +1,19 @@
+{
+    "test": {
+        "driver": "sqlite3",
+        "filename": "D:/Resource_E/github_repo/else_practice/nodejs/keyword-wrangler/tmp/keyword-wrangler.test.sqlite"
+    },
+
+    "dev": {
+        "driver": "sqlite3",
+        "filename": "D:/Resource_E/github_repo/else_practice/nodejs/keyword-wrangler/tmp/keyword-wrangler.dev.sqlite"        
+    },
+
+    "production": {
+        "driver": "mysql",
+        "host": "localhost",
+        "user": "root",
+        "password": "lyxgpdi",
+        "database": "keyword_wrangler"
+    }
+}
