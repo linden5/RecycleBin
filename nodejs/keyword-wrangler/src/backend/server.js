@@ -23,6 +23,23 @@ var Server = function(port) {
             }
         });
 
+    server.route("/api/keywords/categories",
+        {
+            GET: function(req, res) {
+                dbSession.fetchAll(
+                    "SELECT id, name FROM category ORDER BY id",
+                    function(err, rows) {
+                        console.log("Fetched");
+                        if (err) {
+                            console.log(err);
+                            res.status.internalServerError(err);
+                        } else {
+                            res.collection(rows).send();
+                        }
+                });
+            }
+        });
+
     return server;
 };
 

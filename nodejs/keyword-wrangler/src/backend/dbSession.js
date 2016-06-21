@@ -1,9 +1,22 @@
 "use strict";
 
+var env = require("./env");
+var dbOptions = require("../../database.json")[env];
 var DBWrapper = require("node-dbi").DBWrapper;
 
-var dbWrapper = new DBWrapper("sqlite3", 
-    {"path": "D:/Resource_E/github_repo/else_practice/nodejs/keyword-wrangler/tmp/keyword-wrangler.test.sqlite"});
+var dbWrapper;
+if (dbOptions.driver === "sqlite3") {
+    var dbWrapper = new DBWrapper("sqlite3", {path: dbOptions.filename});
+} else if (dbOptions.driver === "mysql") {
+    dbWrapper = new dbWrapper("mysql", {
+        host: dbOptions.host,
+        user: dbOptions.user,
+        password: dbOptions.password,
+        database: dbOptions.database
+    })
+} else {
+    throw(new Error("No suitable database config found."));
+}
 
 dbWrapper.connect();
 module.exports = dbWrapper;
