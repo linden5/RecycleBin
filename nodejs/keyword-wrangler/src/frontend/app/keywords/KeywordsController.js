@@ -34,7 +34,7 @@
                 });
             });
 
-            $scope.keywordsGridOption = {
+            $scope.keywordsGridOptions = {
                 data: "keywords",// This makes the grid use the data in $scope.keywords
                 enableCellSelection: false,//breaks edit of cells with select element if true;
                 enableCellEdit: true,
