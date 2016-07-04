@@ -71,22 +71,37 @@ public class MyLinkedList<AnyType> implements Iterable<AnyType> {
         Node<AnyType> node1Next = node1.next;
         Node<AnyType> node1Prev = node1.prev;
 
-        node1.prev.next = node2;
-        node2.prev.next = node1;
+        if (node1.next == node2) {
+            node1.prev.next = node2;
+            node2.next.prev = node1;
 
-        node1.next.prev = node2;
-        node2.next.prev = node1;
+            node1.prev = node2;
+            node1.next = node2.next;
 
-        node1.next = node2.next;
-        node1.prev = node2.prev;
+            node2.prev = node1Prev;
+            node2.next = node1;
+        } else if (node1.prev == node2) {
+            node2.prev.next = node1;
+            node1.next.prev = node2;
 
-        node2.next = node1Next;
-        node2.prev = node1Prev;
+            node1.prev = node2.prev;
+            node1.next = node2;
 
-        if (node1.next == node1) node1.next = node2;
-        if (node2.next == node2) node2.next = node1;
-        if (node1.prev == node1) node1.prev = node2;
-        if (node2.prev == node2) node2.prev = node1;
+            node2.prev = node1;
+            node2.next = node1Next;            
+        } else {
+            node1.prev.next = node2;
+            node2.prev.next = node1;
+
+            node1.next.prev = node2;
+            node2.next.prev = node1;
+
+            node1.next = node2.next;
+            node1.prev = node2.prev;
+
+            node2.next = node1Next;
+            node2.prev = node1Prev;            
+        }
     }
 
     public boolean contains(AnyType data) {
@@ -104,16 +119,15 @@ public class MyLinkedList<AnyType> implements Iterable<AnyType> {
         java.util.Iterator<AnyType> thisIt;
 
         AnyType current, thisPrev, thisCurrent = null;
-        // System.out.println("------");
+
         while( it.hasNext() ) {
             current = it.next();
             thisIt = iterator();
             while( thisIt.hasNext() ) {
-                thisPrev = thisCurrent;
                 thisCurrent = thisIt.next();
-                // System.out.println(thisPrev + "-" + current);
-                if ( thisPrev != null && thisPrev.equals(current) )
+                if ( thisCurrent.equals(current) ) {
                     thisIt.remove();
+                }
             }
         }
     }
@@ -129,9 +143,11 @@ public class MyLinkedList<AnyType> implements Iterable<AnyType> {
     private AnyType remove( Node<AnyType> p ) {
         p.next.prev = p.prev;
         p.prev.next = p.next;
+        p.next = null;
+        p.prev = null;
+
         theSize--;
         modCount++;
-
         return p.data;
     }
 

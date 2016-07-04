@@ -15,8 +15,8 @@ public class SplayTree<T extends Comparable<? super T>> extends BinarySearchTree
         return true;
     }
 
-    public void print() {
-        preOrderPrint(root);
+    public String print() {
+        return preOrderPrint(root);
     }
 
     private BinaryNode<T> visitRight( T element, BinaryNode<T> t) {
@@ -68,10 +68,16 @@ public class SplayTree<T extends Comparable<? super T>> extends BinarySearchTree
         return rotateWithLeftChild( k3 );
     }
 
-    private void preOrderPrint(BinaryNode<T> t) {
-        if (t == null) return;
-        System.out.println(t.element);
-        preOrderPrint(t.left);
-        preOrderPrint(t.right);
+    private String preOrderPrint(BinaryNode<T> t) {
+        StringBuilder sb = new StringBuilder();
+
+        if (t != null) {
+            System.out.println(t.element);
+            sb.append( t.element );
+            sb.append( preOrderPrint(t.left) );
+            sb.append( preOrderPrint(t.right) );
+        }
+
+        return sb.toString();
     }
 }

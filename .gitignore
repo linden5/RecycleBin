@@ -50,3 +50,4 @@ node_modules
 tmp
 bin
 /nodejs/keyword-wrangler/src/frontend/bower_components
+target

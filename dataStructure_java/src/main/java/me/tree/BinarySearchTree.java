@@ -37,11 +37,12 @@ public class BinarySearchTree<AnyType extends Comparable<? super AnyType>> {
         root = remove( x, root ); 
     }
 
-    public void printTree() {
+    public String printTree() {
         if ( isEmpty() ) {
             System.out.println( "Empty tree" );
+            return null;
         } else {
-            printTree( root );
+            return printTree( root );
         }
     }
 
@@ -132,12 +133,16 @@ public class BinarySearchTree<AnyType extends Comparable<? super AnyType>> {
         return new BinaryNode<AnyType>(t.element, null, root);
     }
 
-    private void printTree( BinaryNode<AnyType> t ) {
+    private String printTree( BinaryNode<AnyType> t ) {
+        StringBuilder sb = new StringBuilder();
+
         if (t != null) {
-            printTree( t.left );
+            sb.append( printTree( t.left ));
             System.out.println( t.element );
-            printTree( t.right );
+            sb.append( t.element);
+            sb.append( printTree( t.right ));
         }
+        return sb.toString();
     }
 
     protected static class BinaryNode<AnyType> {

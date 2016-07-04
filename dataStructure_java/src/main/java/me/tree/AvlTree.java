@@ -11,8 +11,8 @@ public class AvlTree<T extends Comparable<? super T>> {
         return root == null;
     }
 
-    public void printAvlTree() {
-        inOrderPrint(root);
+    public String printAvlTree() {
+        return inOrderPrint(root);
     }
 
     public void insert( T x ) {
@@ -126,11 +126,16 @@ public class AvlTree<T extends Comparable<? super T>> {
         return rotateWithLeftChild( k3 );
     }
 
-    private void inOrderPrint( AvlNode<T> tree ) {
-        if ( tree == null ) return;
-        inOrderPrint(tree.left);
-        System.out.println(tree.element);
-        inOrderPrint(tree.right);
+    private String inOrderPrint( AvlNode<T> tree ) {
+        StringBuilder sb = new StringBuilder();
+
+        if ( tree != null ) {
+            sb.append( inOrderPrint(tree.left) );
+            System.out.println(tree.element);
+            sb.append( tree.element );
+            sb.append( inOrderPrint(tree.right) );
+        }
+        return sb.toString();
     }
 
     private static class AvlNode<T> {

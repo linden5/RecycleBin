@@ -38,16 +38,22 @@ public class ExpTree {
         return root;
     }
 
-    public void printPostOrderTree() {
+    public String printPostOrderTree() {
         BinaryNode<Character> root = formPostOrderTree();
-        postOrderPrint(root);
+        return postOrderPrint(root);
     }
 
-    private void postOrderPrint( BinaryNode<Character> tree ) {
-        if ( tree == null ) return;
-        postOrderPrint(tree.left);
-        postOrderPrint(tree.right);
-        System.out.println(tree.element);
+    private String postOrderPrint( BinaryNode<Character> tree ) {
+        StringBuilder sb = new StringBuilder();
+
+        if ( tree != null ) {
+            sb.append( postOrderPrint(tree.left) );
+            sb.append( postOrderPrint(tree.right) );
+            System.out.println(tree.element);
+            sb.append( tree.element );
+        }
+
+        return sb.toString();
     }
 
     private void inOrderPrint( BinaryNode<Character> tree ) {

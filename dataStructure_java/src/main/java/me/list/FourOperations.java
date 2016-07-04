@@ -115,12 +115,16 @@ public class FourOperations {
                 operandTwo = number.pop();
                 operandOne = number.pop();
 
-                switch (current) {
-                    case "+": result = operandOne + operandTwo; break;
-                    case "-": result = operandOne - operandTwo; break;
-                    case "*": result = operandOne * operandTwo; break;
-                    case "/": result = operandOne / operandTwo; break;
-                    default:  throw new Exception("Only basic 4 arithmetic operations for integers are supported");
+                if ( current.equals("+") ) {
+                    result = operandOne + operandTwo;
+                } else if ( current.equals("-") ) {
+                    result = operandOne - operandTwo;
+                } else if ( current.equals("*") ) {
+                    result = operandOne * operandTwo;
+                } else if ( current.equals("/") ) {
+                    result = operandOne / operandTwo;
+                } else {
+                    throw new Exception("Only basic 4 arithmetic operations for integers are supported");
                 }
 
                 number.push( result );
