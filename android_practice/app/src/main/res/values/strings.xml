@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Test Resources</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="test_dimen">Test Dimen</string>
+    <string name="test_dimen1">Test Dimen1</string>
+    <string name="test_str1">从代码中引用！</string>
+    <string name="test_str2">从资源文件引用！</string>
+</resources>
