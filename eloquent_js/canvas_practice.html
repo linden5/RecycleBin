@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>canvas</title>
+</head>
+<body>
+    <canvas></canvas>
+</body>
+<script>
+var canvas = document.getElementsByTagName("canvas")[0];
+canvas.width = document.body.clientWidth;
+canvas.height = screen.height;
+
+var ctx = canvas.getContext("2d");
+// trapezoid
+ctx.moveTo(50,10);
+ctx.beginPath();
+ctx.lineTo(0, 100);
+ctx.lineTo(150, 100);
+ctx.lineTo(100, 10);
+ctx.lineTo(50, 10);
+ctx.stroke();
+
+// rotated square
+ctx.save();
+ctx.translate(250, 10);
+ctx.rotate(Math.PI / 180 * 45);
+ctx.fillStyle = "red";
+ctx.fillRect(0, 0, 100, 100);
+ctx.restore();
+
+// zigzag
+ctx.save();
+ctx.translate(350, 10);
+ctx.beginPath();
+ctx.moveTo(0, 0);
+for (var i = 0; i < 12; i++) {
+    ctx.lineTo(100 * ( (i + 1) % 2), 10 * (i + 1));
+}
+ctx.stroke();
+ctx.restore();
+
+// 100 segment spiral
+ctx.save();
+ctx.translate(600, 100);
+var radius = 1;
+var angle = 0;
+var x = 0, y = radius;
+
+ctx.moveTo(x, y);
+ctx.beginPath();
+for (i = 0; i < 100; i++) {
+    angle += 6 * Math.PI / 100;
+    radius ++;
+
+    x = radius * Math.cos(angle);
+    y = radius * Math.sin(angle);
+
+    ctx.lineTo(x, y);
+}
+ctx.stroke();
+ctx.restore();
+
+ctx.save();
+ctx.restore();
+
+// yellow star
+ctx.translate(800, 100);
+var radius = 50;
+var angle = 0;
+var cAngle = 2 * Math.PI / 16;
+var x = 0, y = radius;
+ctx.fillStyle = "orange";
+
+ctx.beginPath();
+ctx.moveTo(x, y);
+for (i = 1; i < 9; i++) {
+    angle += 2 * Math.PI / 8;
+
+    x = radius * Math.sin(angle);
+    y = radius * Math.cos(angle);
+
+    ctx.quadraticCurveTo(0, 0, x, y);
+}
+ctx.fill();
+</script>
+</html>
