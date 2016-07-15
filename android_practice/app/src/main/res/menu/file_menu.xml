@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:title="File"
+        android:icon="@drawable/hehe">
+        <menu>
+            <group
+                android:id="@+id/noncheckable_group"
+                android:checkableBehavior="none">
+                <item
+                    android:id="@+id/newFile"
+                    android:title="New"
+                    android:alphabeticShortcut="n"></item>
+                <item
+                    android:id="@+id/openFile"
+                    android:title="Open"
+                    android:alphabeticShortcut="o"></item>
+                <item
+                    android:id="@+id/saveFile"
+                    android:title="Save"
+                    android:alphabeticShortcut="s"></item>
+            </group>
+        </menu>
+    </item>
+
+    <item android:title="Edit" android:icon="@drawable/hehe">
+        <menu>
+            <group android:id="@+id/edit_group"
+                android:checkableBehavior="single">
+                <item android:id="@+id/cut"
+                    android:title="Cut"></item>
+                <item android:id="@+id/copy"
+                    android:title="Copy"></item>
+                <item android:id="@+id/past"
+                    android:title="Past"></item>
+            </group>
+        </menu>
+    </item>
+
+    <item android:title="Help" android:icon="@drawable/hehe">
+        <menu>
+            <group android:id="@+id/help_group">
+                <item android:id="@+id/about"
+                    android:title="About"></item>
+                <item android:id="@+id/exit"
+                    android:title="Exit"></item>
+            </group>
+        </menu>
+    </item>
+</menu>
