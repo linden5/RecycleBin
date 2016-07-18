@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:text="Receiver:"
+        android:id="@+id/TextView01"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"/>
+
+    <EditText
+        android:text=""
+        android:id="@+id/toEditText01"
+        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"/>
+
+    <TextView
+        android:text="Theme:"
+        android:id="@+id/TextView02"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <EditText
+        android:text=""
+        android:id="@+id/subjectEditText01"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:text="Content:"
+        android:id="@+id/TextView03"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <EditText
+        android:text=""
+        android:id="@+id/contentEditText01"
+        android:layout_width="fill_parent"
+        android:layout_height="100dp"/>
+
+    <Button
+        android:text="Send"
+        android:id="@+id/sendButton01"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"/>
+</LinearLayout>

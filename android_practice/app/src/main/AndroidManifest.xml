@@ -2,20 +2,41 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.lyx.myapplication" >
 
+    <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".ch03.TestMenuActivity"
+            android:name=".ch07.RemoteBindActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".ch06.ActionActivity2">
+            <intent-filter>
+                <action android:name="com.example.lyx.myapplication.ch06.MY_ACTION"/>
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".ch04.ResultActivity"/>
+
+        <service android:name=".ch07.MyService">
+            <intent-filter>
+                <action android:name="com.example.lyx.myapplication.ch07.MY_SERVICE"/>
+            </intent-filter>
+        </service>
+        <service android:name=".ch07.MyRemoteService">
+            <intent-filter>
+                <action android:name="MY_REMOTE_SERVICE"/>
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>

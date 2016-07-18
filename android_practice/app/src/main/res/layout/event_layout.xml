@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<TableLayout
+    android:id="@+id/TableLayout01"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <TableRow>
+        <TextView
+            android:id="@+id/TextView01"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="User Name:"/>
+        <EditText
+            android:id="@+id/EditText01"
+            android:text="admin"
+            android:layout_width="fill_parent"
+            android:scrollHorizontally="true"/>
+    </TableRow>
+    <TableRow>
+        <TextView
+            android:id="@+id/TextView02"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Password:"/>
+        <EditText
+            android:id="@+id/EditText02"
+            android:text="123"
+            android:password="true"
+            android:layout_width="fill_parent"
+            android:scrollHorizontally="true"/>
+    </TableRow>
+    <TableRow>
+        <TextView
+            android:id="@+id/TextView03"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Auto Login:">
+        </TextView>
+        <CheckBox
+            android:id="@+id/CheckBox01"
+            android:text=""
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </TableRow>
+    <TableRow android:gravity="right">
+        <Button android:text="Login" android:id="@+id/Button01"/>
+        <Button android:text="Cancel" android:id="@+id/Button02"/>
+    </TableRow>
+</TableLayout>
+</LinearLayout>
