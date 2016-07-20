@@ -12,7 +12,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".ch07.RemoteBindActivity"
+            android:name=".ch10.MainActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -26,6 +26,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".ch04.ResultActivity"/>
+        <activity android:name=".ch08.NotifActivity"/>
+        <activity android:name=".ch09.QueryActivity"/>
 
         <service android:name=".ch07.MyService">
             <intent-filter>
@@ -37,6 +39,12 @@
                 <action android:name="MY_REMOTE_SERVICE"/>
             </intent-filter>
         </service>
+        <receiver android:name=".ch08.MyReceiver">
+            <intent-filter>
+                <action android:name="com.example.lyx.myapplication.ch08.action.MY_ACTION"></action>
+            </intent-filter>
+        </receiver>
+        <provider android:name=".ch10.EmployeeProvider" android:authorities="com.example.lyx.myapplication.ch10.Employees"/>
     </application>
 
 </manifest>
