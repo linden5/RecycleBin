@@ -8,6 +8,7 @@
     <uses-permission android:name="android.permission.RECORD_AUDIO"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
 
     <application
         android:allowBackup="true"
@@ -15,7 +16,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".ch12.ShaderActivity"
+            android:name=".ch13.TestSocketActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -44,7 +45,13 @@
         </service>
         <receiver android:name=".ch08.MyReceiver">
             <intent-filter>
-                <action android:name="com.example.lyx.myapplication.ch08.action.MY_ACTION"></action>
+                <action android:name="com.example.lyx.myapplication.ch08.action.MY_ACTION"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name=".ch14.ProximityAlertReceiver">
+            <intent-filter>
+                <action android:name="ProximityAlert"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </receiver>
         <provider android:name=".ch10.EmployeeProvider" android:authorities="com.example.lyx.myapplication.ch10.Employees"/>
