@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+    td {
+        width: 1rem;
+        height: 1rem;
+        transition: background .5s;
+    }
+    .live {
+        background: rgba(255, 0, 0, .5);
+    }
+</style>
+</head>
+<body>
+</body>
+<textarea id="js-code" placeholder="js code"></textarea>
+<button id="run">Run</button>
+<input type="text" id="input"/>
+<select id="select"></select>
+<table id="conway"></table>
+<script>
+var jscode = document.getElementById("js-code");
+var run = document.getElementById("run");
+var input = document.getElementById("input");
+var select = document.getElementById("select");
+
+run.onclick = function (event) {
+    var code = jscode.value;
+    new Function("", code)();
+};
+
+input.oninput = function () {
+    var candidate = ["a", "b", "c", "d", "e"];
+    var options = [];
+    var value;
+    for (var i = 0; i < candidate.length; i++) {
+        value = candidate[i];
+        options.push(["<option value='", value, "'>", value, "</option>"].join(""));
+    }
+
+    select.innerHTML = options.join("");
+    select.onchange = function() {
+        var option;
+        for (i = 0; i < select.options.length; i++) {
+            option = select.options[i];
+            if (option.selected) {
+                input.value = option.value;
+                break;
+            }
+        }
+    };
+};
+
+var conwayGrid = document.getElementById("conway");
+
+
+function genGrid() {
+    var grid = [];
+    var size = 20;
+    var row;
+    for (var i = 0; i < size; i++) {
+        row = [];
+        for (var j = 0; j < size; j++) {
+            row.push(Math.random() * 10 > 5 ? 1 : 0);
+        }
+        grid.push(row);
+    }
+    return grid;
+}
+
+function getValue(arr, i, j) {
+    var value = 0;
+
+    var top = i - 1;
+    var bottom = i + 1;
+    var left = j - 1;
+    var right = j + 1;
+
+    for (var row = i - 1; row < i + 2; row ++) {
+        if (arr[row] === undefined) continue;
+        for (var col = j - 1; col < j + 2; col++) {
+            if (row === i && col === j) continue;
+            if (arr[row][col] === undefined) continue;
+            value += arr[row][col];
+        }
+    }
+    return value;
+}
+
+function value(grid) {
+    var value = [];
+    var row;
+    for (var i = 0; i < grid.length; i++) {
+        row = [];
+        for (var j = 0; j < grid[i].length; j++) {
+            var elem = getValue(grid, i, j);
+            row.push(elem);
+        }
+        value.push(row);
+    }
+    return value; 
+}
+
+function genTable(grid) {
+    var row;
+    var table = [];
+    for (var i = 0; i < grid.length; i++) {
+        row = grid[i];
+        table.push("<tr>");
+        for (var j = 0; j < row.length; j++) {
+            if (row[j] === 1)
+                table.push("<td class='live'></td>");
+            else
+                table.push("<td></td>");
+        }
+        table.push("</tr>");
+    }
+    return table.join("");
+}
+
+function update(value, grid) {
+    var valueRow;
+    for (var i = 0; i < value.length; i++) {
+        valueRow = value[i];
+        for (var j = 0; j < valueRow.length; j++) {
+            if (grid[i][j] === 1) {
+                if (valueRow[j] < 2 || valueRow[j] > 3)
+                    grid[i][j] = 0;
+                else if (valueRow[j] === 2 || valueRow[j] === 3)
+                    grid[i][j] = 1;
+            } else {
+                if (valueRow[j] === 3)
+                    grid[i][j] = 1;
+            }
+        }
+    }
+    return grid;
+}
+
+var grid = genGrid();
+var id = setInterval(function() {
+    conwayGrid.innerHTML = genTable(grid);
+    var metric = value(grid);
+    grid = update(metric, grid);
+}, 1000);
+
+</script>
+</html>
