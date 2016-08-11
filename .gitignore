@@ -51,3 +51,5 @@ tmp
 bin
 /nodejs/keyword-wrangler/src/frontend/bower_components
 target
+/eloquent_js/public_space
+/eloquent_js/site

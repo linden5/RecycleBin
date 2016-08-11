@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+<label>path</label><input id="path" type="text"/>
+<label>content</label><textarea id="content"></textarea>
+<button id="get">get</button>
+<button id="del">delete</button>
+<button id="mkdir">make directory</button>
+<button id="mod">submit</button>
+<script>
+    var get = document.getElementById("get");
+    var del = document.getElementById("del");
+    var mkdir = document.getElementById("mkdir");
+    var mod = document.getElementById("mod");
+    var path = document.getElementById("path");
+    var content = document.getElementById("content");
+    get.onclick = function () {
+        var req = new XMLHttpRequest();
+        req.open("get", "site/" + path.value, true);
+        req.addEventListener("load", function() {
+            console.log(req.responseText);
+            content.value = req.responseText;
+        });
+        req.send(null);
+    };
+
+    del.onclick = function () {
+        var req = new XMLHttpRequest();
+        req.open("delete", "site/" + path.value, true);
+        req.send(null);
+    };
+    mkdir.onclick = function () {
+        var req = new XMLHttpRequest();
+        req.open("MKCOL", "site/" + path.value, true);
+        req.send(null);
+    };
+    mod.onclick = function () {
+        console.log("fuck");
+        var req = new XMLHttpRequest();
+        req.open("put", "site/" + path.value, true);
+        req.addEventListener("load", function() {
+            console.log(req.responseText);
+            var d = "/site/" + path.value;
+            console.log(d);
+            location.pathname = d;
+        });
+        req.send(content.value);
+    };
+</script>
+</body>
+</html>
