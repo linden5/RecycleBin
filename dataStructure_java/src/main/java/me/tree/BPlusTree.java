@@ -52,65 +52,76 @@ public class BPlusTree<T extends Comparable<? super T>> {
 
             if ( pos == -1)
                 pos = size + 1;
-            return contains(data, nexts[pos]);
+            return nexts[pos].contains(data);
         }
 
-        private boolean contains(T data, Node<T> list) {
-            // TODO
-            return false;
+        public NonLeafNode<T> split(T data) {
+            if (!isFull()) return null;
+
         }
 
         public boolean insert(T data) {
-            // TODO
-            if ( isFull() ) return false;
-            if ( isEmpty() ) {
-                elements[size] = data;
-                return true;
-            }
-
+            if ( size < order / 2 ) {
+                return false;
+            };
+            
             int compareResult;
             int insertPos = 0;
             while (insertPos < size) {
                 compareResult = data.compareTo( elements[ insertPos ] );
-                if ( compareResult < 0 ) {
-                    break;
-                } else if ( compareResult == 0 ) {
+                if ( compareResult == 0 ) {
                     return false;
+                }
+                if ( compareResult < 0) {
+                    break;
                 }
                 insertPos++;
             }
 
-            for (int i = size - 1; i > insertPos; i--) {
-                elements[i] = elements[i - 1];
+            if (!nexts[insertPos].insert(data)) {
+                if (!isFull()) {
+                    for (int i = size; i > insertPos; i--) {
+                        elements[i] = elements[i - 1];
+                        nexts[i + 1] = nexts[i]
+                    }
+                    nexts[insertPos + 1] = nexts[insertPos];
+                    nexts[insertPos] = nexts[insertPos + 1].split(data);
+                    elements[insertPos] = nexts[insertPos + 1].getMin();
+                    return true;
+                } else {
+                    return false;
+                }
             }
-
-            elements[ insertPos ] = data;
-            size++;
-            return true;
         }
 
         public boolean remove(T data) {
             // TODO
-            if ( isMinimal() || isEmpty() ) return false;
+            if ( isEmpty() ) return false;
 
             int compareResult;
             int removePos = 0;
             while (removePos < size) {
                 compareResult = data.compareTo( elements[ removePos ] );
-                if ( compareResult == 0 ) {
+                if ( compareResult <= 0 ) {
                     break;
-                } else if ( compareResult == 0 ) {
-                    return false;
                 }
                 removePos++;
             }
 
-            for (int i = removePos; i < size - 1; i++) {
-                elements[i] = elements[i + 1];
+            if (compareResult == 0) {
+                if ( nexts[removePos + 1].length() )
+            }
+            if (compareResult < 0) {}
+            // if removePos == size, data was not found here
+            if (removePos < size) {
+                for (int i = removePos; i < size; i++) {
+                    elements[i] = elements[i + 1];
+                }
+                size--;
+                return true;
             }
 
-            size--;
-            return true;
+            return false;
         }
     }
 
@@ -142,6 +153,10 @@ public class BPlusTree<T extends Comparable<? super T>> {
             return false;
         }
 
+        public T getMin() {
+            return elements[0];
+        }
+
         public boolean insert(T data) {
             if ( isFull() ) return false;
             if ( isEmpty() ) {
@@ -161,7 +176,7 @@ public class BPlusTree<T extends Comparable<? super T>> {
                 insertPos++;
             }
 
-            for (int i = size - 1; i > insertPos; i--) {
+            for (int i = size; i > insertPos; i--) {
                 elements[i] = elements[i - 1];
             }
 
@@ -170,8 +185,46 @@ public class BPlusTree<T extends Comparable<? super T>> {
             return true;
         }
 
+        public LeafNode<T> split(T data) {
+            if (!isFull()) return null;
+            T[] temp = (T[])new Object[size + 1];
+            T[] newElem = (T[])new Object[leafSize];
+
+            int compareResult;
+            int i = 0;
+            while (i < leafSize) {
+                compareResult = data.compareTo( elements[ i ] );
+                if ( compareResult <= 0 ) {
+                    temp[i] = elements[i];
+                } else if ( compareResult > 0 ) {
+                    temp[i] = data;
+                }
+                i++;
+            }
+
+            int half = temp.length() / 2;
+            size = 0;
+            newSize = 0;
+            for (int i = 0; i < temp.length() ; i++) {
+                if (i < half) {
+                    newElem[i] = temp[i];
+                    newSize++;
+                } else {
+                    elements[i - half] = temp[i];
+                    size++;
+                }
+            }
+
+            LeafNode n = new LeafNode();
+
+            for (int i = 0; i < newSize; i++) {
+                n.insert(newElem[i]);
+            }
+            return n;
+        }
+
         public boolean remove(T data) {
-            if ( isMinimal() || isEmpty() ) return false;
+            if ( isEmpty() ) return false;
 
             int compareResult;
             int removePos = 0;
@@ -179,18 +232,20 @@ public class BPlusTree<T extends Comparable<? super T>> {
                 compareResult = data.compareTo( elements[ removePos ] );
                 if ( compareResult == 0 ) {
                     break;
-                } else if ( compareResult == 0 ) {
-                    return false;
                 }
                 removePos++;
             }
 
-            for (int i = removePos; i < size - 1; i++) {
-                elements[i] = elements[i + 1];
+            // if removePos == size, data was not found here
+            if (removePos < size) {
+                for (int i = removePos; i < size; i++) {
+                    elements[i] = elements[i + 1];
+                }
+                size--;
+                return true;
             }
 
-            size--;
-            return true;
+            return false;
         }
     } 
 }
