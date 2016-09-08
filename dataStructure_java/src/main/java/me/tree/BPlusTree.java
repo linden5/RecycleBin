@@ -57,7 +57,7 @@ public class BPlusTree<T extends Comparable<? super T>> {
 
         public NonLeafNode<T> split(T data) {
             if (!isFull()) return null;
-
+            return null;
         }
 
         public boolean insert(T data) {
@@ -82,23 +82,24 @@ public class BPlusTree<T extends Comparable<? super T>> {
                 if (!isFull()) {
                     for (int i = size; i > insertPos; i--) {
                         elements[i] = elements[i - 1];
-                        nexts[i + 1] = nexts[i]
+                        nexts[i + 1] = nexts[i];
                     }
                     nexts[insertPos + 1] = nexts[insertPos];
-                    nexts[insertPos] = nexts[insertPos + 1].split(data);
-                    elements[insertPos] = nexts[insertPos + 1].getMin();
+//                    nexts[insertPos] = nexts[insertPos + 1].split(data);
+//                    elements[insertPos] = nexts[insertPos + 1].getMin();
                     return true;
                 } else {
                     return false;
                 }
             }
+            return false;
         }
 
         public boolean remove(T data) {
             // TODO
             if ( isEmpty() ) return false;
 
-            int compareResult;
+            int compareResult = 0;
             int removePos = 0;
             while (removePos < size) {
                 compareResult = data.compareTo( elements[ removePos ] );
@@ -109,7 +110,7 @@ public class BPlusTree<T extends Comparable<? super T>> {
             }
 
             if (compareResult == 0) {
-                if ( nexts[removePos + 1].length() )
+//                if ( nexts[removePos + 1].length );
             }
             if (compareResult < 0) {}
             // if removePos == size, data was not found here
@@ -202,10 +203,10 @@ public class BPlusTree<T extends Comparable<? super T>> {
                 i++;
             }
 
-            int half = temp.length() / 2;
+            int half = temp.length / 2;
             size = 0;
-            newSize = 0;
-            for (int i = 0; i < temp.length() ; i++) {
+            int newSize = 0;
+            for (i = 0; i < temp.length ; i++) {
                 if (i < half) {
                     newElem[i] = temp[i];
                     newSize++;
@@ -217,7 +218,7 @@ public class BPlusTree<T extends Comparable<? super T>> {
 
             LeafNode n = new LeafNode();
 
-            for (int i = 0; i < newSize; i++) {
+            for (i = 0; i < newSize; i++) {
                 n.insert(newElem[i]);
             }
             return n;
