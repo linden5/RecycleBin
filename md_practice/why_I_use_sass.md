@@ -90,6 +90,3 @@ Two lines of text inherited line-height properties from parent，but should have
 ![cal](/img/sample_line.png)
 
 ## 4. Once you have started using sass, you don't want to stop.
-
-Here comes the question: why didn't the project leader switch to sass when it has already been widely used for several years?
----
