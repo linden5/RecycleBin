@@ -1,0 +1,227 @@
+.bg-orange {background: #fe7721;}
+.bg-blue {background: blue;}
+.font-yellow {color: yellow;}
+.font-orange {color: #fe7721;}
+.memo-padding {padding:.5rem .8rem;}
+.flex-padding {padding-top:.8rem;}
+
+.memo-arrow {
+  display: inline-block;
+  border: 2px solid;
+  border-right: none;
+  border-bottom: none;
+  
+}
+.arrow-white {border-color: white;}
+.arrow-gray {border-color: #e4e4e4;}
+.arrow-small {
+    position: relative;
+    top: -.2rem;
+    width: .5rem;
+    height: .5rem;
+}
+.arrow-big {
+  position: absolute; 
+  top: .7rem;
+  right: 1rem;
+  width: .5rem;
+  height: .5rem;
+}
+.arrow-down {transform: rotate(225deg);}
+.arrow-right {transform: rotate(135deg);}
+
+.memo-top {
+  color: white;
+}
+.memo-category {
+  margin: auto .5rem;
+  padding: .1rem .3rem;
+  color: #fe7721;
+  font-size: .7rem;
+  background: white;
+  border-radius: 2px;
+}
+
+.memo-month {
+  font-size: .9rem;
+}
+
+.memo-sumary {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding-top: .5rem;
+}
+
+.top-left, .top-right {font-size: .8rem;}
+.top-left {width: 70%;}
+.top-right {width:30%;}
+.memo-sumary .memo-money {font-size: 1.2rem;}
+
+.memo-detail {
+  background: white;
+}
+
+.memo-button {
+  margin: 1.5rem auto;
+  padding: .5rem;
+  width: 20%;
+  text-align: center;
+  color: white;
+  font-size: .8rem;
+  border-radius: 2px;
+}
+
+.memo-legend {font-size: .6rem;}
+
+.memo-dot {
+  display: inline-block;
+  margin-right: .5rem;
+  width: .5rem;
+  height: .5rem;
+  border-radius: 100%;
+}
+.memo-popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.popup-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  width: 80%;
+  height: 70%;
+  text-align: center;
+  background: white;
+  border-radius: 7px;
+}
+
+.popup-close {
+  padding: 5px;
+  text-align: right;
+}
+
+.popup-img {
+  margin: auto;
+  width: 7rem;
+  height: 7rem;
+}
+
+.memo-caption {
+  color: gray;
+  text-align: center;
+  font-size: .7rem;
+}
+
+.memo-input {
+  margin: 1.5rem 0 1.5rem 7%;
+  width: 93%;
+  font-size: .9rem;
+}
+
+.memo-input view {
+  position: relative;
+  padding: .3rem 0;
+  text-align: left;
+  border-bottom: 1px solid #e4e4e4;
+}
+
+.memo-input input {
+  display: inline-block;
+  min-height: 1rem;
+  height: 1rem;
+  line-height: 1rem;
+}
+
+.popup-btn {
+  margin: auto;
+  width: 70%;
+  line-height: 2;
+  color: #fe7721;
+  text-align: center;
+  font-size: 1rem;
+  border: 2px solid #fe7721;
+  border-radius:2rem;
+}
+
+.memo-table {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  background: white;
+}
+.balance-table {
+  margin: .5rem 0;
+  width: 100%;
+  background: white;
+}
+
+.balance-item {
+  display: flex;
+  flex-direction: row;
+  font-size: .9rem;
+  text-align: center;
+  border-bottom: 1px solid #e4e4e4;
+}
+
+.memo-table .memo-dot {
+  position: absolute;
+  top: .4rem;
+  left: 50%;
+  margin-left: -.25rem;
+}
+
+.align-right {
+  text-align: right;
+  border-right: 1px solid #e4e4e4;
+}
+.detail-item {
+  flex:1;
+  padding: 0 .7rem;
+}
+.memo-table-date {
+  position: relative;
+  color:#e4e4e4; 
+  font-size: .9rem;
+}
+.memo-table-font {font-size: .9rem;}
+
+.balance-item view {
+  flex: 1;
+  margin: .3rem 0;
+  padding: 0 .3rem;  
+}
+
+.balance-item .memo-dot {
+  margin-right: .1rem;
+}
+
+.balance-header {
+  display: inline-block;
+  width: 25%;
+  border-right: 1px solid #e4e4e4;
+}
+
+.income {color: #fe7721;}
+.expenses {color:blue;}
+
+.balance-sumary {
+  display: flex;
+  flex-direction: row;
+  margin-top: .4rem;
+  font-size: .9rem;
+  border-top: 1px solid #e4e4e4;
+}
+.balance-sumary text {
+  display: inline-block;
+  margin-top: .5rem;
+  flex: 1;
+}

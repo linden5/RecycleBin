@@ -1,0 +1,15 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/second/second",
+    "pages/fixed/fixed",
+    "pages/demand/demand"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "甜橙理财",
+    "navigationBarTextStyle":"black",
+    "backgroundColor": "#f4f4f4"
+  }
+}

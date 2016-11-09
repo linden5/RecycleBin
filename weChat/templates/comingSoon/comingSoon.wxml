@@ -1,0 +1,1 @@
+<modal title="温馨提示" no-cancel hidden="{{hideModal}}" bindconfirm="modalConfirm">敬请期待！</modal>

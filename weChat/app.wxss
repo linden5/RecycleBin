@@ -1,0 +1,26 @@
+/**app.wxss**/
+page {font-family: "微软雅黑";background:#f4f4f4;}
+
+.flex-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.flex-content{
+    flex: 1;
+    text-align: center;
+}
+
+.font-orange {color: #fe7721;}
+.font-gray {color:#a4a4a4;}
+.font-white {color: white;}
+.font-black {color: black;}
+
+.font-small {font-size:.3rem;}
+.align-left {text-align: left;}
+.align-right {text-align: right;}
+
+.bg-orange {background: #fe7721;}
+.bg-white {background: white;}
+
+.gray-border {border: 1px solid #d4d4d4;}

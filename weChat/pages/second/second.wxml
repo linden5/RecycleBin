@@ -1,0 +1,87 @@
+<!--second.wxml-->
+<view class="memo-top bg-orange memo-padding">
+  <view class="memo-month">9/2016 <em class="memo-arrow arrow-white arrow-down arrow-small"></em>
+    <text class="memo-category">借条</text>
+  </view>
+  <view class="memo-sumary">
+      <view class="top-left">本月收入 
+          <view class="memo-money">
+              <text>{{monthIncome}}</text>元
+          </view>
+      </view>
+      <view class="top-right">本月支出 
+          <view class="memo-money font-yellow">
+              <text>{{monthExpense}}</text>元
+          </view>
+      </view>
+      <view class="top-left flex-padding">结余 
+          <view class="memo-money">
+              <text>{{balance}}</text>元
+          </view>
+      </view>
+  </view>
+</view>
+
+<view class="memo-button bg-orange" bindtap="showAdd">记一笔</view>
+<view class="memo-detail memo-padding">
+  <view class="memo-legend"><em class="memo-dot bg-orange"></em>收入</view>
+  <view class="memo-legend"><em class="memo-dot bg-blue"></em>支出</view>
+  <view class="memo-table" wx:for="{{details}}">
+    <em class="memo-dot bg-orange" wx:if="{{item.cate === 1}}"></em>
+    <view class="detail-item align-right">
+      <template is="income" wx:if="{{item.cate === 1}}" data="{{...item}}"/>
+    </view>
+
+    <em class="memo-dot bg-blue" wx:if="{{item.cate === 0}}"></em>
+    <view class="detail-item">
+      <template is="expenses" wx:if="{{item.cate === 0}}" data="{{...item}}"/>  
+    </view>
+  </view>
+
+  <view class="balance-sumary">
+    <text>收入总额：<strong class="font-orange">{{totalIncome}}元</strong></text>
+    <text>支出总额：<strong class="font-orange">{{totalExpense}}元</strong></text>
+  </view>
+</view>
+
+<template name="income">
+  <view class="memo-table-date">{{date}}</view>
+  <view class="memo-table-font font-orange">{{type}}</view>
+  <view class="memo-table-font font-orange">{{amount}}元</view>
+</template>
+
+<template name="expenses">
+  <view class="memo-table-date">{{date}}</view>
+  <view class="memo-table-font">{{type}}</view>
+  <view class="memo-table-font">{{amount}}元</view>
+</template>
+
+<view class="balance-table">
+  <template is="balance-row-template" data="{{...item}}" wx:for="{{monthBalance}}"/>
+</view>
+
+<view class="balance-table">
+  <template is="balance-row-template" data="{{...item}}" wx:for="{{yearBalance}}"/>
+</view>
+
+<template name="balance-row-template">
+  <view class="balance-item">
+    <view class="balance-header">{{period}}</view>
+    <view class="income"><em class="memo-dot bg-orange"></em>{{income}}元</view>
+    <view class="expenses"><em class="memo-dot bg-blue"></em>{{expenses}}元</view>
+  </view>
+</template>
+
+<view class="memo-popup" wx:if="{{doAdd}}">
+  <view class="popup-container">
+    <view class="popup-close" bindtap="closeAdd">X</view>
+    <image class="popup-img" src="./images/memo.png" />
+    <view class="memo-caption">给自己定个小目标，每天记上一笔</view>
+    <view class="memo-input">
+      <view>类型 <em class="memo-arrow arrow-gray arrow-right arrow-big aligh-r"></em></view>
+      <view>类别 <em class="memo-arrow arrow-gray arrow-right arrow-big aligh-r"></em></view>
+      <view>金额  <input type="number"/> </view>
+    </view>
+    <view class="popup-btn" bindtap="closeAdd">确定</view>
+  </view>
+</view>

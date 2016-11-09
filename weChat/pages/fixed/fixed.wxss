@@ -1,0 +1,147 @@
+@import "../../templates/footer/footer.wxss";
+
+.tab {
+    position: relative;
+    flex: 1;
+    padding: .5rem 0;
+    font-size: .9rem;
+    text-align: center;
+    background-position: 1.5rem center;
+    background-repeat: no-repeat;
+    background-size: 1.3rem;
+    border-bottom: 2px solid white;
+}
+
+.tab-self {background-image: url(./images/fixed_cat1.png);}
+.tab-fossick {background-image: url(./images/fixed_gold1.png);}
+
+.true {
+    color: #fe7721;
+    border-bottom: 2px solid #fe7721;
+}
+.true.tab-self {background-image: url(./images/fixed_cat2.png);}
+.true.tab-fossick {background-image: url(./images/fixed_gold2.png);}
+
+.sup-label {
+    position: absolute;
+    padding: 0 .2rem;
+    border-radius: 5px;
+    font-size: .4rem;
+}
+.guide {
+    width:100%;
+    height: 4rem;
+}
+
+.self {
+    position: relative;
+    margin: .5rem 0;
+    font-size: .8rem;
+    background-color: white;
+    background-repeat: no-repeat;
+    background-position: right top;
+    background-size: 40%;
+    border: 1px solid #f4f4f4;
+    border-left: none;
+    border-right: none;
+}
+
+.product-title {
+    position: relative;
+    padding: .3rem;
+    font-weight: bold;
+}
+
+.can-trans {
+    font-size: .1rem;
+    color: red;
+    border: 1px solid red;
+    border-radius: 3px;
+}
+
+.pre-sell {
+    float: right;
+    padding-left: 1.2rem;
+    font-weight: normal;
+    background: url(./images/pre_clock.png) left center no-repeat;
+    background-size: 1rem;
+}
+
+.text-bg-image {
+    display: inline-block;
+    padding: .4rem;
+    padding-right: .5rem;
+    color: white;
+    font-size: .4rem;
+    background-size: 100%;
+    background-clip: border-box;
+    background-repeat: no-repeat;
+}
+
+.new {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding-left: 1.5rem; 
+    background-image: url(./images/new.png);
+    background-position: center top;
+}
+
+.trans {
+    padding-left: 1rem; 
+    background-image: url(./images/trans_active.png);
+    background-position: center;
+}
+
+.sold .trans {background-image: url(./images/trans_inactive.png);}
+
+.border-right {border-right: 1px solid #e4e4e4;}
+.font-big{font-size: 2em;}
+.sub-comment{display: block;}
+.progress{
+    padding: .3rem .5rem;
+    font-size: .2rem;
+    text-align: right;
+}
+
+progress {
+    margin: .3rem 0;
+}
+
+.prod-bottom {
+    padding: .2rem 0;
+    color: #a4a4a4;
+    font-size: .3rem;
+}
+.bottom-middle {flex:1.5;}
+.bottom-icon {
+    margin-right: .2rem;
+    width: .8rem;
+    height: .8rem;
+}
+
+.prod-soldout {
+    position: absolute;
+    top: 20%;
+    left: 38%;
+    width: 4.5rem;
+    height: 4rem;
+}
+.trans-soldout {
+    position: absolute;
+    top: 25%;
+    left: 30%;
+    width: 8rem;
+    height: 3.5rem;
+}
+
+.sold .font-orange, .sold .product-title, .sold .flex-container, .sold .progress {color: #a4a4a4;}
+.sold .can-trans {color: #a4a4a4; border-color:#e4e4e4;}
+
+.trans-prod {background-image:url(./images/bg_trans.png);}
+.prod-3 {background-image:url(./images/bg_tree.png);}
+.prod-0 {background-image:url(./images/bg_bag.png);}
+.prod-1 {background-image:url(./images/bg_magnifier.png);}
+.prod-2 {background-image:url(./images/bg_sandglass.png);}
+
+.list {padding-bottom: 2rem;}

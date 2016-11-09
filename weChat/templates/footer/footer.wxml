@@ -1,0 +1,1 @@
+<view class="footer" bindtap="footerTap"><image src="../../images/my.png"/>{{footerText}}</view>

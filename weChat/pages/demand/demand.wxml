@@ -1,0 +1,38 @@
+<view class="demand-top bg-orange">
+    <view class="title flex-container">
+        <view class="align-left flex-content">昨日收益<text class="font-small">(元)2016-10-16</text></view>
+        <text class="align-right flex-content">灵活互转，实时存取</text>
+    </view>
+    <view class="yesterday-income font-white">{{yesterdayIncome}}</view>
+    <view class="fund-name">嘉实货币A</view>
+    <view class="detail flex-container">
+        <view class="detail-item right-border">
+            <view>总金额<text class="font-small">(元)</text></view>
+            <text class="amount">{{totalAmount}}</text>
+        </view>
+        <view class="detail-item left-padding">
+            <view>累计收益<text class="font-small">(元)</text></view>
+            <text class="amount font-white">{{totalIncome}}</text>
+        </view>
+        <view class="detail-item right-border">
+            <view>冻结金额<text class="font-small">(元)</text></view>
+            <text class="amount font-white">{{freezeAmount}}</text>
+        </view>
+        <view class="detail-item left-padding">
+            <view>万份收益<text class="font-small">(元)</text></view>
+            <text class="amount font-white">{{rate}}</text>
+        </view>
+        <text class="record">交易记录</text>
+    </view>
+</view>
+<view class="bg-white">
+    <view class="chart-header">近7日年化收益率(%)<image class="promote" src="./images/promote.png"/></view>
+    <canvas canvas-id="line"></canvas>
+</view>
+<view></view>
+<view class="footer flex-container">
+    <view class="btn gray-border">提现</view>
+    <view class="salary">工资理财</view>
+    <view class="btn bg-orange font-white">购买</view>
+    <view class="warn">贷币基金不等同于银行存款，投资需谨慎。</view>
+</view>

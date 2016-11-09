@@ -1,0 +1,84 @@
+.flex-container {
+    position: relative;
+    flex-wrap: wrap;
+}
+
+.demand-top {
+    padding: .5rem;
+    color: #e4e4e4;
+}
+
+.title {font-size: .8rem;}
+.yesterday-income {font-size: 2.5rem;}
+
+.fund-name {
+    padding-bottom: .5rem;
+    text-align: right; 
+    font-size: 60%;
+    border-bottom:1px solid #e4e4e4;
+}
+.right-border {border-right: 1px solid #e4e4e4;}
+.left-padding {padding-left: .5rem;}
+
+.detail {
+    padding-top: .5rem;
+    font-size: .7rem;
+}
+.detail-item {
+    padding-bottom: .5rem;
+    width: 48%;
+    text-align: left;
+}
+.amount {font-size: 1.3rem;}
+.record {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    font-size: .7rem;
+}
+
+.chart-header {
+    margin: .5rem 0;
+    padding: .5rem;
+    line-height: 1.5rem;
+    font-size: .8rem;
+}
+.promote {
+    float: right;
+    width: 6.5rem;
+    height: 1.5rem;
+}
+
+.footer {
+    padding-top: 2rem;
+    background: url(./images/bottom_bg.png) center center no-repeat;
+    background-size: cover;
+}
+
+.btn {
+    margin: 0 2.3%;
+    width: 25%;
+    height: 2rem;
+    line-height: 2rem;
+    text-align: center;
+}
+
+.salary {
+    flex: 1;
+    margin-top: -1.5rem;
+    margin-left: -.3rem;
+    height: 4rem;
+    line-height: 5rem;
+    text-align: center;
+    color: white;
+    background: url(./images/btn.png) center center no-repeat;
+    background-size: contain;
+}
+
+.warn {
+    margin: .5rem auto;
+    font-size: .3rem;
+    color: red;
+    text-align: center;
+    text-decoration: underline;
+}

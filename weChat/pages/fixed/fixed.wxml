@@ -1,0 +1,56 @@
+<view class="flex-container bg-white">
+    <view class="tab font-gray tab-self {{selfSelect}}" bindtap="chooseSelf">自选专区</view>
+    <view class="tab font-gray tab-fossick {{fossick}}" bindtap="chooseFossick">淘金专区<text class="sup-label bg-orange font-white">有惊喜</text></view>
+</view>
+<image class="guide" src="./images/fixed_guide.png"/>
+
+<view class="list" hidden="{{fossick}}" >
+    <view class="self prod-{{index % 4}} {{item.percent === 100 ? 'sold' : ''}}" wx:for="{{selfList}}">
+        <template is="product" data="{{...item}}"/>
+    </view>
+</view>
+
+<view class="list" hidden="{{selfSelect}}" >
+    <view class="self trans-prod {{item.percent === 100 ? 'sold' : ''}}" wx:for="{{fossickList}}">
+        <template is="product" data="{{...item}}"/>
+    </view>
+</view>
+
+<template name="product">
+    <view class="product-title {{type === 'newuser' ? 'font-orange' : '' }}">{{name}}
+        <text wx:if="{{type === 'canTrans'}}" class="can-trans">可转让</text>
+        <view wx:if="{{isTrans}}" class="text-bg-image trans">可再次转让</view>
+        <view wx:if="{{type === 'pre'}}" class="pre-sell font-orange">{{dateTime}}开始预约</view>
+        <view wx:if="{{type === 'newuser'}}" class="text-bg-image new">新用户专享</view>
+    </view>
+    <view class="flex-container">
+        <view class="flex-content border-right">
+            <view><text class="font-big">{{period || "灵活存取"}}</text>{{period ? "天" : ""}}</view>
+            <text wx:if="{{period}}" class="sub-comment">{{isTrans ? "剩余期限" : "理财期限"}}</text>
+        </view>
+        <view class="flex-content font-orange">
+            <text class="font-big">{{rate}}</text>%
+            <text class="sub-comment {{percent !== 100 ? 'font-black' : ''}}">预期年化收益率</text>
+        </view>
+    </view>
+    <view wx:if="{{!isTrans}}" class="progress">募集进度<text class="font-orange">{{percent}}%</text></view>
+    <progress percent="{{isTrans ? 100 : percent}}" stroke-width="2" color="{{!isTrans && percent !== 100 ? 'red' : '#f4f4f4'}}"/>
+    <view class="flex-container prod-bottom">
+        <view class="flex-content">
+            <image class="bottom-icon" src="{{percent === 100 ? './images/product_amount_gray.png' : './images/product_amount.png'}}"/>
+            {{isTrans ? "淘金总额" : ""}}<text class="font-orange">{{startAmount}}</text>元{{!isTrans ? '起购' : ''}}
+        </view>
+        <view class="flex-content {{!isTrans ? 'bottom-middle' : ''}}">
+            <image class="bottom-icon" src="{{percent === 100 ? './images/product_time_gray.png' : './images/product_time.png'}}"/>
+            {{startDate}}起息
+        </view>
+        <view wx:if="{{!isTrans}}" class="flex-content">
+            <image class="bottom-icon" src="./images/product_safe.png"/>
+            较低风险
+        </view>        
+    </view>
+    <image wx:if="{{percent === 100 && !isTrans}}" class="prod-soldout" src="./images/sold_prod.png"/>
+    <image wx:if="{{percent === 100 && isTrans}}" class="trans-soldout" src="./images/sold_trans.png"/>
+</template>
+
+<include src="../../templates/footer/footer.wxml"/>

@@ -1,0 +1,53 @@
+<swiper indicator-dots="{{indicatorDots}}"
+  autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+  <block wx:for="{{bannerUrls}}">
+    <swiper-item>
+      <image class="banner-img" src="{{item}}"/>
+    </swiper-item>
+  </block>
+</swiper>
+
+<view class="section-wrap">
+  <view class="sections sec-{{index}}" data-index="{{index}}" bindtap="toSection" wx:for="{{sections}}">
+    {{item}}
+    <text class="sup" wx:if="{{index === 4}}">账户安全</text>
+    <text class="sup" wx:if="{{index === 5}}">开户红包</text>
+  </view>
+</view>
+
+<view class="recomend">
+  <view class="recomend-title">精品推荐</view>
+  <template is="recomend" wx:for="{{recomendList}}" data="{{...item}}"/>
+</view>
+
+<template name="recomend">
+  <view class="recomend-item">
+    <view>
+        <text class="title">{{title}}</text>
+        <view class="label label-bg-{{cate}}">
+          <image class="label-img" src="./images/serve.png" wx:if="{{cate == 0}}"/>
+          <image class="label-img" src="./images/crown.png" wx:if="{{cate == 1}}"/>
+          <image class="label-img" src="./images/upup.png" wx:if="{{cate == 2}}"/>
+          <image class="label-img" src="./images/clock.png" wx:if="{{cate == 3}}"/>
+          {{type}}
+        </view>
+    </view>
+    <view class="item-main">
+      <view class="item-left">
+        <view class="left-top font-color-{{cate}} {{cate === 0 ? 'stock-bg' : ''}}">{{rate}}</view>
+        <view class="left-bottom">{{rateType}}</view>
+      </view>
+      <view class="item-right">
+        <view class="flex-content highlight">
+        	<text class="hi-left flex-content" wx:if="{{cate != 0}}">{{infoName}}</text>
+          <text class="hi-right{{cate}} flex-content font-color-{{cate}}">{{infoData}}</text>
+        </view>
+        <text class="flex-content sub-highlight">{{description}}</text>
+      </view>
+    </view>
+  </view>
+</template>
+
+<include src="../../templates/footer/footer.wxml"/>
+<include src="../../templates/comingSoon/comingSoon.wxml"/>
+<include src="../../templates/loading/loading.wxml"/>
