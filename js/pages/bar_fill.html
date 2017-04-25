@@ -1,0 +1,87 @@
+<!Doctype html>
+<html>
+<head>
+<style>
+    .container { 
+        margin: 2rem; 
+        width: 90%; 
+        height: 2rem;
+        background: #DDD; 
+        border-radius:1rem;
+    }
+    .fill {width: 0;height: 2rem;border-radius:.5rem;}
+</style>
+</head>
+<body>
+<div class="container">
+    <div id="bar1" class="fill"></div>
+</div>
+<div class="container">
+    <div id="bar2" class="fill"></div>
+</div>
+<div class="container">
+    <div id="bar3" class="fill"></div>
+</div>
+<script>
+var barFillAnimation = function(selector, percent) {
+    var rgb40 = [121,226,183], //#79E2B7
+        rgb80 = [249,216,78], //#F9D84E
+        rgb100 = [255,128,128];//#FF8080
+
+    var step1 = 40, step2 = 80;
+
+    var hex40 = "#79E2B7",
+        hex80 = "#F9D84E",
+        hex100 = "#FF8080";
+
+    var barAnimateRule = function(percent) {
+        var rgbColor, step;
+
+        var rule = ["0% {width: 0; background: #DDD;}"];
+        var percentPoint = percent * 100;
+
+        if (percentPoint <= step1) {
+            rgbColor = rgb40.map(function(color) {
+                return Math.round(color * (percentPoint / step1));
+            }).join(",");
+        } else if (percentPoint <= step2) {
+            step = step1 / percentPoint;
+            rule.push([step * 100, "% {background:", hex40, ";}"].join(""));
+
+            rgbColor = rgb80.map(function(color, index) {
+                return Math.round(color + (color - rgb40[index]) * (percentPoint - step1) / step1);
+            }).join(",");
+        } else {
+            step = step1 / percentPoint;
+            rule.push([step * 100, "% {background:", hex40, ";}"].join(""));
+            step = step2 / percentPoint;
+            rule.push([step * 100, "% {background:", hex80, ";}"].join(""));
+
+            rgbColor = rgb100.map(function(color, index) {
+                return Math.round(color + (color - rgb80[index])* (percentPoint - step2) / (100 - step2));
+            }).join(",");
+        }
+
+        rule.push(["100% {width: ", percentPoint, "%;"].join(""));
+        rule.push(["background: rgb(", rgbColor, ");}"].join(""));
+
+        return rule.join("");
+    };
+
+    var styleElem = document.createElement("style");
+    var randomNum = Math.round(Math.random() * 10000);
+    var id = ["barfill", randomNum].join("");
+    styleElem.id = id;
+    styleElem.innerHTML = ["@keyframes ", id, " { ", barAnimateRule(percent), "}"].join("");
+    document.getElementsByTagName("head")[0].appendChild(styleElem);
+    setTimeout(function() {
+        document.querySelector(selector," .fill").style.animation = [id, " 1s forwards"].join("");
+    }, 1000);
+};
+    
+barFillAnimation("#bar1", 0.4);
+barFillAnimation("#bar2", 0.5);
+barFillAnimation("#bar3", 0.9);
+</script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Shoot Planes</title>
+<link rel="stylesheet" href="../styles/my-practice.min.css" type="text/css" />
+<link rel="shortcut icon" href="../images/favicon.ico" type="img/x-icon" />
+</head>
+<body>
+	<audio id="FM" loop="" src="http://source.mouto.org/%E3%81%84%E3%81%91%E3%81%AA%E3%81%84%E3%83%9C%E3%83%BC%E3%83%80%E3%83%BC%E3%83%A9%E3%82%A4%E3%83%B3.m4a"></audio>
+	<div id="title">
+		<h1 class="title-2">Shoot Planes</h1>
+		<ul id="menu" class="menu">
+			<li id="start">Start</li>
+			<li id="help">Help</li>
+			<li id="exit">Exit</li>
+		</ul>
+		<div id="helpinfo" class="help">
+			<p>Use 'arrow' keys to move your plane, 'z' to fire,</p>
+			<p>'x' to release bomb, 'shift' for low speed mode.</p>
+		</div>
+		<ul id="game-type" class="type">
+			<li id="dom">Dom</li>
+			<li id="canvas">Canvas</li>
+		</ul>
+	</div>
+	<div id="game">
+		<div id="statusbar">
+			<span id="score">Score:&nbsp;&nbsp;<em>0</em></span>
+			<span id="life">Life:&nbsp;&nbsp;<em>0</em></span>
+			<span id="bomb">Bomb:&nbsp;&nbsp;<em>0</em></span>
+			<span id="back">Abort</span>
+		</div>
+		<div id="domarea"></div>
+		<canvas id="canvasarea"></canvas>
+	</div>
+	<div id="gameover">Game Over<br />
+	 Your Score is:<em id="point"></em><br />
+	 Press 'Spacebar' to restart or 'Enter' to quit.</div>
+</body>
+<script src="../scripts/my-practice.min.js"></script>
+</html>

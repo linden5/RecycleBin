@@ -1,0 +1,186 @@
+@charset "utf-8";
+/* Common reset*/
+html{font-family: "微软雅黑"; font-size: 10px;}
+body, h1, h2{margin: 0;}
+body{background: #EEE;}
+button {border: none;}
+ul {-webkit-padding-start: 0;}
+a {text-decoration: none;}
+li {list-style: none;}
+
+
+/* index page */
+.button {
+	display: block;
+	width: 40%;
+	margin: 1rem auto;
+	padding: .5rem;
+	font-size: 1rem;
+	color: white;
+	background: gray;  
+}
+
+/* slider page */
+.header{background: #66CCFF;}
+.header a {
+	display: inline-block;
+	padding: 0.83em;
+	height: 2rem;
+	font-size: 1.7em;
+	color: white;
+	text-align: center;
+}
+
+.header .chosen, .header :hover {
+	color: #66CCFF;
+	background: white;
+}
+
+/* CSS for sideBar*/
+.list {
+	position: fixed;
+	top: 8em;
+	list-style: none;
+	width: 5em;
+	font-size: 0.9em;
+	text-align: center;
+	vertical-align: middle;
+	background-color: #66CCFF;
+	border: 0.2em solid #66CCFF;
+}
+
+.list-right {
+	position: fixed;
+	top: 8rem;
+	right: 1rem;
+	font-size: 2em;
+	font-weight: bold;
+	color:#66CCFF;
+}
+
+.link-normal {display: block;}
+.list .link {
+	display: block;
+	padding: 0.6em;
+	color: white;
+	background-color: #66CCFF;
+}
+
+.list :hover, .list .chosen{
+	color: #66CCFF;
+	background-color: white;
+}
+
+/* CSS for image */
+.container {
+	position: absolute;
+	top: 6em;
+	left: 27.5%;
+	text-align: center;
+	width: 37.5em;
+	height: 23em;
+	overflow: hidden;
+}
+
+.canvas {
+	position: absolute;
+	height: 23em;
+}
+
+.img {
+	display: inline-block;
+	width: 37.5em;
+	height: 23em;
+	line-height:25em;
+	text-align: center;
+	background-size: cover;
+}
+
+/* CSS for dots under images */
+.dot-line {
+	position: absolute;
+	top: 32em;
+	left: 44%;
+}
+
+.dot-line .link {
+	display: inline-block;
+	margin: 0.2em;
+	width: 2.4em;
+	height: 2.4em;
+	border: 0.15em solid #66CCFF;
+	border-radius: 1.2em;
+}
+
+.dot-line .chosen, .dot-line :hover {
+	background: #66CCFF;
+}
+
+/*Game page*/
+.menu {
+	position: relative;
+	top: 4em;
+	text-align: center;
+}
+
+#start, #help, #exit {
+	font-size: 3em;
+	padding: 0.3em;
+	width: 8%;
+	margin-left: auto;
+	margin-right: auto;
+	cursor: pointer;
+}
+
+.title-2 {
+	padding: .5em 0;
+	top: 2em;
+	font-size:4em;
+	text-align: center;
+	border-bottom: 0.2em solid black;
+}
+
+.help, .type, #gameover {
+	display: none;
+	position: absolute;
+	top: 35%;
+	left: calc(50% - 15em);
+	width: 30em;
+	color: white;
+	font-size: 2em;
+	text-align: center;
+	background: #222222;
+}
+
+.type :hover {
+	font-size: 2em;
+}
+
+
+#statusbar {
+	border-bottom: 0.2em solid black;
+	height: 4.5em;
+}
+
+#score, #life, #bomb {
+	float: left;
+	font-size: 2em;
+	margin: 1em;
+}
+
+#back {
+	float: right;
+	font-size: 2em;
+	cursor: pointer;
+	margin: 1em;
+}
+#game {display: none;}
+#domarea, #canvasarea {
+	display: none;
+	position: absolute;
+	top: 4.5em;
+	border-bottom: 1px solid black;
+	width: 1360px;
+	height: 570px;
+	overflow: hidden;
+}

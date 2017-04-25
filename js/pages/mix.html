@@ -1,0 +1,486 @@
+<!Doctype html>
+<html>
+<head>
+<style>
+html {font-size: 16px;}
+body {margin:0;text-align: center; width: 100%; height: 100%;}
+.container { margin: 2rem auto; width: 90%; height: 2rem;background-color: #DDD; border-radius: 1rem;}
+.length, .fill {height: 2rem;border-radius: 1rem;}
+
+.fill.below40 {-webkit-animation: below40 1s forwards;}
+.fill.below80 {-webkit-animation: below80 1s forwards;}
+.fill.below100 {-webkit-animation: below100 1s forwards;}
+@-webkit-keyframes below40 {
+    0%   {width:0;}
+    100% {background-color: #79E2B7;width:100%;}
+}
+@-webkit-keyframes below80 {
+    0%   {width:0;}
+    50%  {background-color: #79E2B7;}
+    100% {background-color: #F9D84E;width:100%;}
+}
+@-webkit-keyframes below100 {
+    0%   {width:0;}
+    30%  {background-color: #79E2B7;}
+    70%  {background-color: #F9D84E;}
+    100% {background-color: #FF8080;width:100%;}
+}
+
+.button {
+    position: relative;
+    margin: 10rem auto 0;
+    width:60%;
+    height: 10rem;
+    background: red;
+    border-radius: 5rem;
+    -webkit-transition: width 1s;
+}
+
+.button.clicked {
+    width: 10rem;
+}
+
+.button.fill {
+    z-index: 3;
+    margin-top: -200%;
+    width:150%;
+    height: 400rem; 
+    border-radius: 100rem;
+    -webkit-transition: all 1s;
+}
+.bar {
+    z-index: -1;
+    position: relative;
+    margin-top: 5rem;
+    width: 100%;
+    height: 10rem;
+    line-height: 10rem;
+    border: 1px solid #777;
+}
+.stamp {
+    display: inline-block;
+    position: absolute;
+    opacity: 1;
+    top: 0;
+    right: 0;
+    width: 10rem;
+    height:10rem;
+    float: right;
+    background: orange;
+    border-radius: 5rem;
+}
+.stamp.drop {
+    opacity: 0;
+    top: -5rem;
+    right: 5rem;
+    width: 40rem;
+    height:40rem;
+    border-radius: 20rem;
+}
+.hide {display: none;}
+
+.top {
+    position: relative;
+    z-index: 2;
+    margin: 0;
+    width: 100%;
+    height: 10rem;
+    background: green;
+    -webkit-transition: all 5s;
+}
+
+/*http://www.w3cfuns.com/notes/15477/77ccd4ade5c1f467e496f0020fe23ea8.html*/
+@-webkit-keyframes open {
+    0%  {
+        -webkit-transform: rotateX(-120deg);
+    }
+    25% {
+        -webkit-transform: rotateX(20deg);
+    }
+    50% {
+        -webkit-transform: rotateX(-10deg);
+    }
+    75% {
+        -webkit-transform: rotateX(5deg);
+        box-shadow: inset 0 0 0 0 #ccc;
+    }
+    100%{
+        -webkit-transform: rotateX(0deg);
+    }
+}
+
+@-webkit-keyframes clos {
+    0%  {
+        -webkit-transform: rotateX(0deg);
+    }
+    100%{
+        -webkit-transform: rotateX(-120deg);
+    }
+}
+.wrap{position: relative;}
+.wrap>div:nth-of-type(1) {
+    top: 10rem;
+}
+
+.wrap span {
+    display: block;
+    opacity: .5;
+    width: 100%;
+    height: 35rem;
+    background: green;
+    font-size: 25rem;
+    color: #fff;
+    text-align: center;
+    border-bottom: 1px solid #128ca6;
+    border-top: 1px solid #82e8fe;
+    box-shadow: inset 0 0 100px 20px rgba(0,0,0,1);
+    -webkit-transition: 1s;
+}
+.wrap div {
+    position: absolute;
+    width: 100%;
+    -webkit-transform-style: preserve-3d;
+    -webkit-transform-origin: top;
+    -webkit-transform: rotateX(-120deg);
+    z-index: 1;
+}
+
+.wrap .open {
+    -webkit-transform:rotateX(0deg);
+    -webkit-animation: 4s open ease-in;
+}
+.wrap .open>span {
+    box-shadow: inset 0 0 100px 20px rgba(0,0,0,0);
+}
+.wrap .clos {
+    -webkit-transform:rotateX(-120deg);
+    -webkit-animation: 4s clos ease;
+}
+.wrap .clos>span {
+    box-shadow: inset 0 0 100px 20px rgba(0,0,01);
+}
+.white {
+    position: relative;
+    z-index: 3;
+    background-color: white;
+}
+.refresh {
+    width: 100%;
+    background: #999;
+    -webkit-transition: all .5s;
+}
+.refresh-bottom {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background: #999;
+    border-radius: 100% 100% 0 0;
+    -webkit-transform-origin: bottom;
+    -webkit-transform: scaleY(0);
+}
+.refresh-bottom.ing {-webkit-animation: wave 1s ease;}
+@-webkit-keyframes wave {
+    0% {-webkit-transform: scaleY(-1);background: #999;}
+    20% {-webkit-transform: scaleY(1);background: white;}
+    40% {-webkit-transform: scaleY(-.8);background: #999;}
+    60% {-webkit-transform: scaleY(.6);background: white;}
+    80% {-webkit-transform: scaleY(-.4);background: #999;}
+    100% {-webkit-transform: scaleY(0);background: #999;} 
+}
+
+.circle1 {
+    position: relative;
+    margin: 5rem auto;
+    width: 30rem;
+    height: 30rem;
+    text-align: center;
+    border: .5rem solid rgba(255, 255, 0, .6);
+    border-radius: 15rem;
+    -webkit-box-sizing: border-box;
+}
+.circle2 {
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    width: 80%;
+    height: 80%;
+    border: 1rem solid rgba(255, 255, 0, 1);
+    border-radius: 12.5rem;
+    -webkit-box-sizing: inherit;
+}
+.ripple {
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    width: 80%;
+    height: 80%;
+    background: yellow;
+    border-radius: 10rem;
+    -webkit-box-sizing: inherit;
+}
+.shadow {
+    margin: auto;
+    width: 20rem;
+    height: 20rem;
+    background-color: purple;
+    border: 30px solid rgba(141, 75, 187, 0.8);
+    border-radius: 10rem;
+    -webkit-box-sizing: border-box;
+    -webkit-animation: expand 1s infinite;
+}
+@-webkit-keyframes expand {
+    0% {
+        border-width: 0;
+        border-color: purple;
+        box-shadow: 0 0 0 0 rgba(141, 75, 187, 1), 0 0 0 0 rgba(141, 75, 187, 1);
+    }
+
+    100% {
+        border-width: 2rem;
+        box-shadow: 0 0 0 5rem rgba(141, 75, 187, .5), 0 0 0 10rem rgba(141, 75, 187, .2);
+    }
+}
+
+.panel {
+    position: absolute;
+    width: 80%;
+    height: 10rem;
+    font-size: 5rem;
+    color: white;
+    -webkit-transition: all 1s;
+}
+.panel:nth-of-type(1) {background: yellow;}
+.panel:nth-of-type(2) {background: red;}
+.panel:nth-of-type(3) {background: blue;}
+.front{
+    z-index: 3;
+    top:20%;
+    left:10%;
+    width: 80%;
+}
+.middle {
+    z-index: 2;
+    top:60%;
+    left:15%;
+    width: 70%;
+}
+.back {
+    z-index: 1;
+    top:0%;
+    left:20%;
+    width: 60%;
+}
+.bg {
+    position: relative;
+    margin-top: 4rem;
+    height: 20rem;
+}
+</style>
+</head>
+<body>
+<div class="white">
+    <div id="refresh" class="refresh"></div>
+    <div id="ref-bottom" class="refresh-bottom"></div>
+</div>
+
+<div id="folder" class="wrap">
+    <p class="top"></p>
+    <div>
+        <span>a</span>
+        <div>
+            <span>b</span>
+            <div>
+                <span>c</span>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div id="bar1" class="length">
+        <div class="fill"></div>
+    </div>
+</div>
+<div class="container">
+    <div id="bar2" class="length">
+        <div class="fill"></div>
+    </div>
+</div>
+<div class="container">
+    <div id="bar3" class="length">
+        <div class="fill"></div>
+    </div>
+</div>
+
+<div class="bar"><span id="stamp1" class="stamp drop hide"></span></div>
+<div class="bar"><span id="stamp2" class="stamp drop hide"></span></div>
+<div class="bar"><span id="stamp3" class="stamp drop hide"></span></div>
+
+<div id="button" class="button"></div>
+<div class="circle1"><div class="circle2"><div class="ripple"></div></div></div>
+<div class="shadow"></div>
+
+<div class="bg">
+<div class="panel front">1</div>
+<div class="panel middle">2</div>
+<div class="panel back">3</div>
+</div>
+<script>
+var barFillAnime = function(selector, percent) {
+    var getFrame = function(percent) {
+        var percentPoint = percent * 100;
+        if (percentPoint <= 40) return "below40";
+        else if (percentPoint <= 80) return "below80";
+        else return "below100";
+    };
+    document.querySelector(selector).style.width = [percent * 100, "%"].join("");
+    setTimeout(function() {
+        document.querySelector([selector, " .fill"].join(""))
+                .className += [" ", getFrame(percent)].join("");
+    }, 1000);
+};
+
+barFillAnime("#bar1", 0.3);
+barFillAnime("#bar2", 0.6);
+barFillAnime("#bar3", 0.9);
+
+document.querySelector(".button").onclick = function(e) {
+    var self = this;
+    var className = this.className;
+    if (className.indexOf("clicked") < 0) {
+        this.className += " clicked";
+    } else {
+        this.className = className.replace(" clicked", "");
+    }
+    if (this.className.indexOf("fill") > 0)
+        this.className = className.replace(" fill", "");
+    setTimeout(function() {
+        if (self.className.indexOf("fill") < 0) {
+            self.className += " fill";
+            document.body.style.overflow = "hidden";
+        }
+    }, 1000);
+};
+
+var isOff = true;
+var iDelay = 200;
+var timer;
+var oWrap = document.getElementById('folder');
+var aDiv = oWrap.getElementsByTagName('div');
+oWrap.onclick = function(e) {
+    if(isOff){
+        i=0;
+        timer = setInterval(function(){
+            aDiv[i].className = 'open';
+            if(i==aDiv.length-1 || !aDiv[i]){
+                clearInterval(timer);
+            }
+            i++;
+        }, iDelay);
+    } else {
+        i=aDiv.length-1;
+        timer = setInterval(function(){
+            aDiv[i].className = 'clos';
+            if(i==0 || !aDiv[i]){
+                clearInterval(timer);
+            }
+            i--;
+        }, iDelay);
+    }
+    isOff = !isOff;
+};
+
+var stampFactory = function() {
+    var time = 200;
+    var delay = time;
+    return function(selector) {
+        var stamp = document.querySelector(selector);
+        
+        setTimeout(function() {
+            stamp.style.transition = "display 1s";
+            stamp.className = stamp.className.replace(" hide", "");
+        }, time);
+        time += delay;
+        setTimeout(function() {
+            stamp.style.transition = "all 1s ease-in";
+            stamp.className = stamp.className.replace(" drop", "");
+        }, time);
+        time += delay;
+    };
+};
+
+var stampEffect = stampFactory();
+stampEffect("#stamp1");
+stampEffect("#stamp2");
+stampEffect("#stamp3");
+
+var oldY, mouseDown;
+var refreshFlag = false;
+var refresh = document.getElementById("refresh");
+var refBottom = document.getElementById("ref-bottom");
+var reset = function() {
+    oldX = undefined;
+    oldY = undefined;
+    refBottom.style = "";
+    refBottom.className = refBottom.className.replace(" ing", "");
+    refresh.style.height = 0;
+    // refresh.style.borderRadius = 0;
+};
+var refreshStyle = function() {
+    oldX = undefined;
+    oldY = undefined;
+    refBottom.style = "";
+    refresh.style.height = "200px";
+    // refresh.style.borderRadius = 0;
+    refBottom.className += " ing";
+};
+document.ontouchmove = document.onmousemove = function(e) {
+    if (!mouseDown || refreshFlag) {
+        console.log("prevent")
+        console.log(!mouseDown + " " + refreshFlag);
+        return;
+    }
+
+    var pos = e.clientY || e.touches[0].clientY;
+    if (oldY === undefined || oldY < 0) oldY = pos;
+    var moveLen = pos - oldY;
+    console.log(e.clientY);
+    console.log(oldY);
+    console.log(moveLen);
+    console.log(!mouseDown + " " + refreshFlag);
+
+    refresh.style.height = moveLen / 3 + "px";
+    refBottom.style = ["-webkit-transform: scaleY(", - moveLen / 100, ")"].join("");
+    // var radius = moveLen / 1.5 + "px";
+    // refresh.style.borderBottomRightRadius = radius;
+    // refresh.style.borderBottomLeftRadius = radius;
+
+};
+document.ontouchstart = document.onmousedown = function(e) {
+    mouseDown = true;
+};
+document.ontouchend = document.onmouseup = function(e) {
+    mouseDown = false;
+    var refreshHeight = +refresh.style.height.replace("px", "");
+    if (refreshHeight < 80) {reset();return;}
+
+    refreshFlag = true;
+    alert("refresh");
+    refreshStyle();
+    setTimeout(reset, 3000);
+    mouseDown = false;
+    refreshFlag = false;
+};
+
+var count = 1;
+setInterval(function() {
+    var className = ["front", "middle", "back"];
+    var panels = document.querySelectorAll(".panel");
+    for (var i = 0; i < panels.length; i++) {
+        panels[i].className = "panel " + className[(i + count)%3];
+    }
+    count++;
+}, 2000);
+</script>
+</body>
+</html>
