@@ -1,0 +1,16 @@
+{
+  "name": "es6-learing",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "babel src-es6 --out-dir src && jasmine"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-preset-env": "^1.5.2",
+    "jasmine": "^2.6.0"
+  }
+}
