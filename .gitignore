@@ -56,3 +56,10 @@ target
 /dataStructure_java/.idea
 /dataStructure_java/dataStructure_java.iml
 bower_components
+/delphi/learning/1/*.cfg
+/delphi/learning/1/*.dof
+/delphi/learning/1/*.exe
+/delphi/learning/1/*.res
+/delphi/learning/1/*.dcu
+/delphi/learning/1/*.ddp
+/delphi/learning/1/*.dfm
