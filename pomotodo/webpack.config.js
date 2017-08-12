@@ -1,45 +1,83 @@
-var path = require('path');
-var webpack = require('webpack');
-var json = require('./package.json');
-
-var htmlWebpackPlugin = require('html-webpack-plugin');
+var path = require('path')
+var webpack = require('webpack')
 
 module.exports = {
-    entry:      {
-        app:    './src/index.js',
-        vendor: Object.keys(json.dependencies)
-    },
-    output: {
-        path:       path.resolve(__dirname, './dist'),
-        filename:   '[name].[chunkhash:8].js',
-    },
-    resolve: {
-        modules: [
-            'node_modules',
-            path.resolve(__dirname, './src')
-        ],
-
-        alias: {
-            'vue$': 'vue/dist/vue.common.js'
+  entry: './src/main.js',
+  output: {
+    path: path.resolve(__dirname, './dist'),
+    publicPath: '/dist/',
+    filename: 'build.js'
+  },
+  module: {
+    rules: [
+      {
+        test: /\.vue$/,
+        loader: 'vue-loader',
+        options: {
+          loaders: {
+            // Since sass-loader (weirdly) has SCSS as its default parse mode, we map
+            // the "scss" and "sass" values for the lang attribute to the right configs here.
+            // other preprocessors should work out of the box, no loader config like this necessary.
+            'scss': 'vue-style-loader!css-loader!sass-loader',
+            'sass': 'vue-style-loader!css-loader!sass-loader?indentedSyntax'
+          }
+          // other vue-loader options go here
         }
-    },
-    module: {
-        rules: [
-            {test: /\.js$/, use: 'babel-loader'}
+      },
+      {
+        test: /\.js$/,
+        loader: 'babel-loader',
+        exclude: /node_modules/
+      },
+      {
+        test: /\.(png|jpg|gif|svg)$/,
+        loader: 'file-loader',
+        options: {
+          name: '[name].[ext]?[hash]'
+        }
+      },
+      {
+        test: /\.css$/,
+        use: [
+          'style-loader',
+          'css-loader'
         ]
-    },
-    devServer: {
-        contentBase: path.join(__dirname, "dist")
-    },
-    plugins: [
-        new htmlWebpackPlugin({
-            filename: './index.html',
-            template: './src/index.ejs',
-            title:    'pomotodo'
-        }),
-        new webpack.optimize.CommonsChunkPlugin({
-            name: 'vendor',
-            filename: '[name].[chunkhash:8].js'
-        })
+      }
     ]
-};
+  },
+  resolve: {
+    alias: {
+      'vue$': 'vue/dist/vue.esm.js',
+      'octicons-style$': 'octicons/build/octicons.min.css'
+    }
+  },
+  devServer: {
+    historyApiFallback: true,
+    noInfo: true
+  },
+  performance: {
+    hints: false
+  },
+  devtool: '#eval-source-map'
+}
+
+if (process.env.NODE_ENV === 'production') {
+  module.exports.devtool = '#source-map'
+  // http://vue-loader.vuejs.org/en/workflow/production.html
+  module.exports.plugins = (module.exports.plugins || []).concat([
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: '"production"'
+      }
+    }),
+    new webpack.optimize.UglifyJsPlugin({
+      sourceMap: true,
+      compress: {
+        warnings: false
+      }
+    }),
+    new webpack.LoaderOptionsPlugin({
+      minimize: true
+    })
+  ])
+}

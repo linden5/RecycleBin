@@ -1,17 +1,14 @@
-'use strict';
-
-var x = 1,
-    y = 2;
+var x =1, y = 2;
 
 function equation() {
-    return x + ' + 2 * ' + y + ' = ' + (x + 2 * y);
+    return `${x} + 2 * ${y} = ${x + 2 * y}`;
 }
 
 function hello() {
     return 'hello';
 }
 function fn() {
-    return hello() + ', world';
+    return `${hello()}, world`;
 }
 
 module.exports = {
