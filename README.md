@@ -1,2 +1,2 @@
 # RecycleBin
-All kinds of stuff
+All kinds of stuff, mainly practice.
