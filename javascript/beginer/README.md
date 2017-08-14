@@ -1,2 +1,2 @@
-# js_front_practice
-JavaScript frontend practice
+Practice when beginning to learn JavaScript.
+Including a shabby slider and a game shooting blocks.
