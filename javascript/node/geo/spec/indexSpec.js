@@ -5,4 +5,4 @@ describe('Extract url dir by splitting with "\\" and then join them ', function(
         let base = 'http://www.baidu.com/';
         expect(getBaseUrl(base + 'aaa')).toBe(base);
     })
-})
+});
