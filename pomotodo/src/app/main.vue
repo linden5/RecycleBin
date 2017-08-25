@@ -113,5 +113,10 @@ select {
     margin: 2em 0;
 }
 
+input.header-bar {
+    width: 100%;
+    font-size: 1rem;
+}
+
 </style>
 
