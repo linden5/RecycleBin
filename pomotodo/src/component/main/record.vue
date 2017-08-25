@@ -2,10 +2,10 @@
     <div class="row">
         <list-panel class="col">
             <div class="header-bar progress-bar" slot="header" @click="startTomato">
-                <p class="progress-text">{{tomato.started ? tomato.left : '开始番茄'}}</p>
-                <div class="progress" v-show="tomato.started"
-                    v-bind:style="'width: ' + (tomato.elapsed/tomato.time * 100) + '%'"></div>
-                <span class="circle icon-close" v-show="tomato.started" @click.stop="stopTomato">X</span>
+                <p class="progress-text">{{tomatoStart ? tomatoLeft : '开始番茄'}}</p>
+                <div class="progress" v-show="tomatoStart"
+                    v-bind:style="'width: ' + tomatoPercent + '%'"></div>
+                <span class="circle icon-close" v-show="tomatoStart" @click.stop="stopTomato">X</span>
             </div>
             <ul slot="list">
                 <li class="done-list" v-for="done in doneList">
@@ -36,6 +36,7 @@ import octicons from 'octicons'
 import listPanel from './listPanel.vue'
 import svgSize from '../../service/octicons'
 
+
 export default {
     components: {
         'list-panel': listPanel
@@ -44,14 +45,6 @@ export default {
         return {
             icon: {
                 pin: octicons.pin.toSVG(svgSize)
-            },
-            tomato: {
-                started: false,
-                elapsed: 0,
-                time: 25 * 60,
-                break: 5 * 60,
-                timeId: null,
-                left: ''
             },
             newTask: '',
             doneList: [
@@ -86,6 +79,20 @@ export default {
             ]
         }
     },
+    computed: {
+        tomatoLeft() {
+            return this.$store.getters.tomatoLeft;
+        },
+        tomatoStart() {
+            return this.$store.getters.tomatoStart;
+        },
+        tomatoPercent() {
+            return this.$store.getters.tomatoPercent;
+        },
+        tomatoTimeout() {
+            return this.$store.getters.tomatoTimeout;
+        }
+    },
     methods: {
         submitNewTask: function(event) {
             if (event.keyCode === 13 && this.newTask) {
@@ -95,28 +102,21 @@ export default {
         },
         startTomato: function() {
             console.log(this);
-            if (this.tomato.started) {
+            if (this.$store.state.started) {
                 return;
             }
-            this.tomato.started = true;
-            this.tomato.left = '25:00';
-            this.tomato.timeId = setInterval(() => {
-                if (this.tomato.elapsed < this.tomato.time) {
-                    this.tomato.elapsed++;
-                    var leftTime = this.tomato.time - this.tomato.elapsed;
-                    var minute = Math.floor(leftTime / 60);
-                    var second = leftTime % 60;
-                    this.tomato.left = (minute > 9 ? '' : '0') + minute + ':' + (second > 9 ? '' : '0') + second;
+            this.$store.commit('tomatoStart')
+            var timeId = setInterval(() => {
+                if (!this.tomatoTimeout) {
+                    this.$store.commit('tomatoTick')
                 } else {
-                    clearInterval(this.tomato.timeId);
-                    this.stopTomato();
+                    this.$store.commit('tomatoStop')
                 }
             }, 1000);
+            this.$store.commit('tomatoTimer', timeId);
         },
         stopTomato: function() {
-            this.tomato.started = false;
-            this.tomato.elapsed = 0;
-            clearInterval(this.tomato.timeId);
+            this.$store.commit('tomatoStop');
         }
     }
 }
