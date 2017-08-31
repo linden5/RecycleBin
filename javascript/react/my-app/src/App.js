@@ -1,4 +1,5 @@
 import React from 'react';
+import io from 'socket.io-client';
 import './App.css';
 
 function Square(props) {
@@ -63,8 +64,29 @@ class Game extends React.Component {
       ],
       stepNumber: 0,
       xIsNext: true,
-      ascending: true
+      ascending: true,
+      player: '',
+      socket: io()
     }
+  }
+
+  componentWillMount() {
+    var socket = this.state.socket;
+    socket.emit('login');
+    socket.on('login', (msg) => {
+      if (this.state.player) {
+        return;
+      }
+      this.setState({
+        player: msg
+      });
+      
+      var opposite = this.state.player === 'X' ? 'O' : 'X';
+      socket.on('move' + opposite, (msg) => {
+        console.log(msg);
+        this.setState(msg);
+      });
+    });
   }
 
   toggle() {
@@ -74,6 +96,12 @@ class Game extends React.Component {
   }
 
   handleClick(i) {
+    if (this.state.player === 'X' && !this.state.xIsNext) {
+      return;
+    } else if (this.state.player === 'O' && this.state.xIsNext) {
+      return;
+    }
+
     const history = this.state.history.slice(0, this.state.stepNumber + 1);
     const current = history[history.length - 1];
     const squares = current.squares.slice();
@@ -84,7 +112,7 @@ class Game extends React.Component {
 
     squares[i] = this.state.xIsNext ? "X" : "O";
 
-    this.setState({
+    const newState = {
       history: history.concat([
         {
           squares: squares
@@ -92,7 +120,11 @@ class Game extends React.Component {
       ]),
       stepNumber: history.length,
       xIsNext: !this.state.xIsNext
-    });
+    };
+    this.setState(newState);
+
+    var socket = this.state.socket;
+    socket.emit('move' + this.state.player, newState);
   }
 
   jumpTo(step) {
@@ -134,9 +166,12 @@ class Game extends React.Component {
     let status;
     if (winner) {
       status = "Winner: " + winner;
+      this.state.socket.emit('over');
     } else {
       status = "Next player: " + (this.state.xIsNext ? "X" : "O");
     }
+
+    let player = "You are:" +this.state.player;
 
     return (
       <div className="game">
@@ -148,6 +183,7 @@ class Game extends React.Component {
           />
         </div>
         <div className="game-info">
+          <div>{player}</div>
           <button onClick={() => this.toggle()}>toggle</button>
           <div>{status}</div>
           <ol>{moves}</ol>
