@@ -2,7 +2,9 @@ program BrowserProject;
 
 uses
   Forms,
-  Browser in 'Browser.pas' {Form1};
+  Browser in 'Browser.pas' {Form1},
+  BrowserUtils in 'BrowserUtils.pas',
+  RedisUtils in 'RedisUtils.pas';
 
 {$R *.res}
 
