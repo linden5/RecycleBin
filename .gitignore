@@ -63,3 +63,4 @@ bower_components
 /delphi/learning/1/*.dcu
 /delphi/learning/1/*.ddp
 /delphi/learning/1/*.dfm
+/javascript/express/.idea

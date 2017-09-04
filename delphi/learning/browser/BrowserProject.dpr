@@ -4,7 +4,8 @@ uses
   Forms,
   Browser in 'Browser.pas' {Form1},
   BrowserUtils in 'BrowserUtils.pas',
-  RedisUtils in 'RedisUtils.pas';
+  RedisUtils in 'RedisUtils.pas',
+  RandomSequence in 'RandomSequence.pas';
 
 {$R *.res}
 

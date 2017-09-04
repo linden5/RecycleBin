@@ -1,6 +1,6 @@
 object Form1: TForm1
-  Left = 207
-  Top = 118
+  Left = 291
+  Top = 141
   Width = 928
   Height = 480
   Caption = 'Form1'
@@ -17,7 +17,7 @@ object Form1: TForm1
     Left = 112
     Top = 264
     Width = 27
-    Height = 17
+    Height = 13
     Caption = 'Value'
   end
   object Label2: TLabel
@@ -56,7 +56,7 @@ object Form1: TForm1
     Width = 121
     Height = 21
     TabOrder = 1
-    Text = 'cn.bing.com'
+    Text = 'localhost:8080/btejump'
   end
   object GetDefaultBrowserButton: TButton
     Left = 280
@@ -125,5 +125,23 @@ object Form1: TForm1
     Height = 21
     TabOrder = 9
     Text = 'GetValue'
+  end
+  object RandomStrButton: TButton
+    Left = 632
+    Top = 112
+    Width = 145
+    Height = 25
+    Caption = 'Generate Random String'
+    TabOrder = 10
+    OnClick = RandomStrButtonClick
+  end
+  object RedisDelButton: TButton
+    Left = 368
+    Top = 264
+    Width = 105
+    Height = 25
+    Caption = 'Delete from Redis'
+    TabOrder = 11
+    OnClick = RedisDelButtonClick
   end
 end
