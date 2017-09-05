@@ -1,0 +1,32 @@
+@import url(https://fonts.googleapis.com/css?family=Inconsolata:400,700|Open+Sans:400,800);
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+.jumbotron {
+    padding: 0 0 20px;
+    font-family: 'Inconsolata', monospace ;
+}
+.btn-succes {
+    background-color: ghostwhite;
+}
+.btn-error {
+    background-color: yellow;
+}
+
+i {
+    color:black;
+}
+.btn-error i {
+    color: gainsboro;
+}
+
+.btn {
+    -webkit-user-select: none; /* webkit (safari, chrome) browsers */
+    -moz-user-select: none; /* mozilla browsers */
+    -khtml-user-select: none; /* webkit (konqueror) browsers */
+    -ms-user-select: none; /* IE10+ */
+}
+
+:focus {
+    outline: none;
+}
