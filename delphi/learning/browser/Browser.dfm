@@ -1,6 +1,6 @@
 object Form1: TForm1
-  Left = 291
-  Top = 141
+  Left = 227
+  Top = 135
   Width = 928
   Height = 480
   Caption = 'Form1'
@@ -13,135 +13,185 @@ object Form1: TForm1
   OldCreateOrder = False
   PixelsPerInch = 96
   TextHeight = 13
-  object Label1: TLabel
-    Left = 112
-    Top = 264
-    Width = 27
-    Height = 13
-    Caption = 'Value'
-  end
-  object Label2: TLabel
-    Left = 112
-    Top = 240
-    Width = 18
-    Height = 13
-    Caption = 'Key'
-  end
-  object Label3: TLabel
-    Left = 112
-    Top = 344
-    Width = 18
-    Height = 13
-    Caption = 'Key'
-  end
-  object Label4: TLabel
-    Left = 112
-    Top = 376
-    Width = 27
-    Height = 13
-    Caption = 'Value'
-  end
-  object LauchBrowserButton: TButton
-    Left = 280
-    Top = 104
-    Width = 131
-    Height = 25
-    Caption = 'Open in Default Browser'
+  object GroupBox1: TGroupBox
+    Left = 32
+    Top = 16
+    Width = 385
+    Height = 385
+    Caption = #22522#26412#21151#33021#27979#35797
     TabOrder = 0
-    OnClick = LauchBrowserButtonClick
+    object Label1: TLabel
+      Left = 32
+      Top = 224
+      Width = 27
+      Height = 13
+      Caption = 'Value'
+    end
+    object Label2: TLabel
+      Left = 32
+      Top = 200
+      Width = 18
+      Height = 13
+      Caption = 'Key'
+    end
+    object Label3: TLabel
+      Left = 32
+      Top = 272
+      Width = 18
+      Height = 13
+      Caption = 'Key'
+    end
+    object Label4: TLabel
+      Left = 32
+      Top = 296
+      Width = 27
+      Height = 13
+      Caption = 'Value'
+    end
+    object Label5: TLabel
+      Left = 40
+      Top = 40
+      Width = 22
+      Height = 13
+      Caption = 'URL'
+    end
+    object GetDefaultBrowserButton: TButton
+      Left = 200
+      Top = 72
+      Width = 169
+      Height = 25
+      Caption = #33719#21462#40664#35748#27983#35272#22120
+      TabOrder = 0
+      OnClick = GetDefaultBrowserButtonClick
+    end
+    object GetFromRedisButton: TButton
+      Left = 200
+      Top = 272
+      Width = 121
+      Height = 25
+      Caption = #20174'redis'#33719#21462
+      TabOrder = 1
+      OnClick = GetFromRedisButtonClick
+    end
+    object GetKey: TEdit
+      Left = 64
+      Top = 272
+      Width = 121
+      Height = 21
+      TabOrder = 2
+      Text = 'GetKey'
+    end
+    object GetValue: TEdit
+      Left = 64
+      Top = 296
+      Width = 121
+      Height = 21
+      TabOrder = 3
+      Text = 'GetValue'
+    end
+    object IEVersionButton: TButton
+      Left = 200
+      Top = 104
+      Width = 169
+      Height = 25
+      Caption = #33719#21462'IE'#29256#26412
+      TabOrder = 4
+      OnClick = IEVersionButtonClick
+    end
+    object LauchBrowserButton: TButton
+      Left = 200
+      Top = 40
+      Width = 169
+      Height = 25
+      Caption = #22312#40664#35748#27983#35272#22120#20013#25171#24320
+      TabOrder = 5
+      OnClick = LauchBrowserButtonClick
+    end
+    object RandomStrButton: TButton
+      Left = 200
+      Top = 168
+      Width = 169
+      Height = 25
+      Caption = #20135#29983#38543#26426#23383#31526#20018
+      TabOrder = 6
+      OnClick = RandomStrButtonClick
+    end
+    object RedisDelButton: TButton
+      Left = 200
+      Top = 224
+      Width = 121
+      Height = 25
+      Caption = #20174'redis'#21024#38500
+      TabOrder = 7
+      OnClick = RedisDelButtonClick
+    end
+    object SetKey: TEdit
+      Left = 64
+      Top = 200
+      Width = 121
+      Height = 21
+      TabOrder = 8
+      Text = 'SetKey'
+    end
+    object SetToRedisButton: TButton
+      Left = 200
+      Top = 200
+      Width = 121
+      Height = 25
+      Caption = #23384#21040'redis'
+      TabOrder = 9
+      OnClick = SetToRedisButtonClick
+    end
+    object SetValue: TEdit
+      Left = 64
+      Top = 224
+      Width = 121
+      Height = 21
+      TabOrder = 10
+      Text = 'SetValue'
+    end
+    object URLEdit: TEdit
+      Left = 64
+      Top = 40
+      Width = 121
+      Height = 21
+      TabOrder = 11
+      Text = 'localhost:8080/btejump'
+    end
   end
-  object URLEdit: TEdit
-    Left = 144
-    Top = 104
-    Width = 121
-    Height = 21
+  object GroupBox2: TGroupBox
+    Left = 512
+    Top = 24
+    Width = 257
+    Height = 369
+    Caption = #27169#25311#36339#36716
     TabOrder = 1
-    Text = 'localhost:8080/btejump'
-  end
-  object GetDefaultBrowserButton: TButton
-    Left = 280
-    Top = 144
-    Width = 129
-    Height = 25
-    Caption = 'Get Default Browser'
-    TabOrder = 2
-    OnClick = GetDefaultBrowserButtonClick
-  end
-  object IEVersionButton: TButton
-    Left = 280
-    Top = 184
-    Width = 129
-    Height = 25
-    Caption = 'Get IE Version'
-    TabOrder = 3
-    OnClick = IEVersionButtonClick
-  end
-  object SetKey: TEdit
-    Left = 144
-    Top = 240
-    Width = 121
-    Height = 21
-    TabOrder = 4
-    Text = 'SetKey'
-  end
-  object SetValue: TEdit
-    Left = 144
-    Top = 264
-    Width = 121
-    Height = 21
-    TabOrder = 5
-    Text = 'SetValue'
-  end
-  object SetToRedisButton: TButton
-    Left = 280
-    Top = 264
-    Width = 75
-    Height = 25
-    Caption = 'Set to Redis'
-    TabOrder = 6
-    OnClick = SetToRedisButtonClick
-  end
-  object GetFromRedisButton: TButton
-    Left = 280
-    Top = 344
-    Width = 75
-    Height = 25
-    Caption = 'Get from Redis'
-    TabOrder = 7
-    OnClick = GetFromRedisButtonClick
-  end
-  object GetKey: TEdit
-    Left = 144
-    Top = 344
-    Width = 121
-    Height = 21
-    TabOrder = 8
-    Text = 'GetKey'
-  end
-  object GetValue: TEdit
-    Left = 144
-    Top = 376
-    Width = 121
-    Height = 21
-    TabOrder = 9
-    Text = 'GetValue'
-  end
-  object RandomStrButton: TButton
-    Left = 632
-    Top = 112
-    Width = 145
-    Height = 25
-    Caption = 'Generate Random String'
-    TabOrder = 10
-    OnClick = RandomStrButtonClick
-  end
-  object RedisDelButton: TButton
-    Left = 368
-    Top = 264
-    Width = 105
-    Height = 25
-    Caption = 'Delete from Redis'
-    TabOrder = 11
-    OnClick = RedisDelButtonClick
+    object LoginButton: TButton
+      Left = 64
+      Top = 48
+      Width = 129
+      Height = 25
+      Caption = #30331#24405#27169#25311
+      TabOrder = 0
+      OnClick = LoginButtonClick
+    end
+    object LogoutButton: TButton
+      Left = 64
+      Top = 128
+      Width = 129
+      Height = 25
+      Caption = #36864#20986#27169#25311
+      TabOrder = 1
+      OnClick = LogoutButtonClick
+    end
+    object AddressButton: TButton
+      Left = 64
+      Top = 88
+      Width = 129
+      Height = 25
+      Caption = #36339#36716#21040#22320#22336#24211
+      TabOrder = 2
+      OnClick = AddressButtonClick
+    end
   end
 end

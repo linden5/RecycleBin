@@ -5,7 +5,8 @@ uses
   Browser in 'Browser.pas' {Form1},
   BrowserUtils in 'BrowserUtils.pas',
   RedisUtils in 'RedisUtils.pas',
-  RandomSequence in 'RandomSequence.pas';
+  RandomSequence in 'RandomSequence.pas',
+  BrowserBridge in 'BrowserBridge.pas';
 
 {$R *.res}
 

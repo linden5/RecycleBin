@@ -24,6 +24,12 @@ type
     GetValue: TEdit;
     RandomStrButton: TButton;
     RedisDelButton: TButton;
+    GroupBox1: TGroupBox;
+    GroupBox2: TGroupBox;
+    LoginButton: TButton;
+    LogoutButton: TButton;
+    AddressButton: TButton;
+    Label5: TLabel;
     procedure LauchBrowserButtonClick(Sender: TObject);
     procedure GetDefaultBrowserButtonClick(Sender: TObject);
     procedure IEVersionButtonClick(Sender: TObject);
@@ -31,6 +37,9 @@ type
     procedure GetFromRedisButtonClick(Sender: TObject);
     procedure RandomStrButtonClick(Sender: TObject);
     procedure RedisDelButtonClick(Sender: TObject);
+    procedure LoginButtonClick(Sender: TObject);
+    procedure LogoutButtonClick(Sender: TObject);
+    procedure AddressButtonClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -42,10 +51,14 @@ var
 
 implementation
 
-uses BrowserUtils, RedisUtils, RandomSequence;
+uses BrowserUtils, RedisUtils, RandomSequence, BrowserBridge;
 
 {$R *.dfm}
 
+
+var
+  Redis: TRedisUtils;
+  
 {浏览器打开新页面}
 procedure TForm1.LauchBrowserButtonClick(Sender: TObject);
 var
@@ -54,7 +67,7 @@ begin
   URLToOpen := 'http://' + URLEdit.Text + '?usercode=' + SetKey.Text;
   // The following commented code works, leave it here undeleted as a referrence
   //ShellExecute(Application.Handle, nil, 'http://cn.bing.com', nil, nil, SW_SHOWNORMAL);
-  TBrowserUtils.OpenInDefaultNotIE(URLToOpen);
+  TBrowserUtils.OpenInDefaultBrowser(URLToOpen);
 end;
 
 {取得默认浏览器}
@@ -73,14 +86,12 @@ procedure TForm1.SetToRedisButtonClick(Sender: TObject);
 var
   Key: string;
   Value: string;
-  Redis: TRedisUtils;
   RedisResult: string;
 begin
   Key := SetKey.Text;
   Value := SetValue.Text;
 
-  Redis := TRedisUtils.Create();
-  RedisResult := Redis.SetToRedis(Key, Value);
+  RedisResult := Redis.SetToRedis(Key, Value, 10 * 60 * 60);
   ShowMessage(RedisResult);
 end;
 
@@ -88,11 +99,10 @@ procedure TForm1.GetFromRedisButtonClick(Sender: TObject);
 var
   Key: string;
   Value: string;
-  Redis: TRedisUtils;
+
 begin
   Key := SetKey.Text;
 
-  Redis := TRedisUtils.Create();
   Value := Redis.GetFromRedis(Key);
   GetValue.Text := Value;
 
@@ -111,13 +121,38 @@ procedure TForm1.RedisDelButtonClick(Sender: TObject);
 var
   Key: string;
   RedisResult: string;
-  Redis: TRedisUtils;
 begin
   Key := SetKey.Text;
 
-  Redis := TRedisUtils.Create();
   RedisResult := Redis.DelFromRedis(Key);
   ShowMessage(RedisResult);
 end;
+
+{实际中用到的大概长这样}
+{登录}
+procedure TForm1.LoginButtonClick(Sender: TObject);
+begin
+  ShowMessage(TBrowserBridge.createSequence);
+end;
+
+{登出}
+procedure TForm1.LogoutButtonClick(Sender: TObject);
+begin
+  ShowMessage(TBrowserBridge.clearSequence);
+end;
+
+{打开页面}
+procedure TForm1.AddressButtonClick(Sender: TObject);
+var
+  URL: string;
+begin
+  URL := 'http://localhost:8080/btejump?usercode=' + TBrowserBridge.GetLoginSequence;
+  TBrowserBridge.openBrowser(URL, 10);
+end;
+
+{初始化，也可以调用TBrowserBridge.SetRedisHostAndPort方法}
+initialization
+  Redis := TRedisUtils.Create('localhost', 6379);
+  TBrowserBridge.SetRedis(Redis);
 
 end.

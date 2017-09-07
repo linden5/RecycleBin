@@ -9,10 +9,8 @@ type
   private
     fConnection: IRedisConnection;
   public
-    constructor Create; overload;
     constructor Create(Host: string; Port: Integer); overload;
-    destructor Destroy;
-    function SetToRedis(Key: string; Value: string): string;
+    function SetToRedis(Key: string; Value: string;TTL: Integer): string;
     function GetFromRedis(Key: string): string;
     function DelFromRedis(Key: string): string;
   end;
@@ -22,31 +20,24 @@ implementation
 uses
   SysUtils;
 
-constructor TRedisUtils.Create;
-begin
-  fConnection := TRedis.getConnection('localhost', 6379);
-end;
 
+{指定redis端口}
 constructor TRedisUtils.Create(Host: string; Port: Integer);
 begin
   fConnection := TRedis.getConnection(Host, Port)
 end;
 
-destructor TRedisUtils.Destroy;
-begin
-  fConnection._Release;
-end;
 
-function TRedisUtils.SetToRedis(Key: string; Value: string): string;
+{实际上是setex，指定了存储时间}
+function TRedisUtils.SetToRedis(Key: string; Value: string; TTL: Integer): string;
 var
-  Seconds: Integer;
   Query : string;
 begin
-  Seconds := 12 * 60 * 60;   // 定义key的存储时间
-  Query := 'setex ' + Key + ' ' + IntToStr(Seconds) + ' ' + Value;
+  Query := 'setex ' + Key + ' ' + IntToStr(TTL) + ' ' + Value;
   Result := fConnection.ExecuteQuery(Query);
 end;
 
+{从redis取值}
 function TRedisUtils.GetFromRedis(Key: string): string;
 var
   Query : string;
@@ -55,6 +46,7 @@ begin
   Result := fConnection.ExecuteQuery(Query);
 end;
 
+{从redis删除}
 function TRedisUtils.DelFromRedis(Key: string): string;
 var
   Query : string;
