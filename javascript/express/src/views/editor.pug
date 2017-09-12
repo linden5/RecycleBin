@@ -11,11 +11,27 @@ html
 
         div.main-container
             div.tool-bar
-                span#bold-icon(title='加粗') B
-            article.editor#editor(contentEditable='true')
-                h3 title
-                p paragraph1
-                p paragraph2
-                p paragraph3
-                p paragraph4
+            div.editor-wrapper
+                div.menus#menu-list
+                    ul.menu#fontSize
+                        li(value='1')
+                            font(size='1') 非常小
+                        li(value='2')
+                            font(size='2') 较小
+                        li(value='3')
+                            font(size='3') 小
+                        li(value='4')
+                            font(size='4') 正常
+                        li(value='5')
+                            font(size='5') 大
+                        li(value='6')
+                            font(size='6') 较大
+                        li(value='7')
+                            font(size='7') 非常大
+                article.editor#editor(contentEditable='true')
+                    h3 title
+                    p paragraph1
+                    p paragraph2
+                    p paragraph3
+                    p paragraph4
         script(src='/script/editor.js')

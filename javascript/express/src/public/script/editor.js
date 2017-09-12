@@ -2,16 +2,34 @@ var commands = [{
     "cmd": "bold",
     "icon": "data:image/gif;base64,R0lGODlhFgAWAID/AMDAwAAAACH5BAEAAAAALAAAAAAWABYAQAInhI+pa+H9mJy0LhdgtrxzDG5WGFVk6aXqyk6Y9kXvKKNuLbb6zgMFADs=",
     "desc": "粗体"
-},/* {
+}, {
     "cmd": "italic",
     "icon": "data:image/gif;base64,R0lGODlhFgAWAKEDAAAAAF9vj5WIbf///yH5BAEAAAMALAAAAAAWABYAAAIjnI+py+0Po5x0gXvruEKHrF2BB1YiCWgbMFIYpsbyTNd2UwAAOw==",
     "desc": "斜体"
 }, {
+    "cmd": "underline",
+    "icon": "data:image/gif;base64,R0lGODlhFgAWAKECAAAAAF9vj////////yH5BAEAAAIALAAAAAAWABYAAAIrlI+py+0Po5zUgAsEzvEeL4Ea15EiJJ5PSqJmuwKBEKgxVuXWtun+DwxCCgA7",
+    "desc": "下划线"
+}, {
     "cmd": "createLink",
-    "val": "https://twitter.com/netsi1964",
     "icon": "data:image/gif;base64,R0lGODlhFgAWAOMKAB1ChDRLY19vj3mOrpGjuaezxrCztb/I19Ha7Pv8/f///////////////////////yH5BAEKAA8ALAAAAAAWABYAAARY8MlJq7046827/2BYIQVhHg9pEgVGIklyDEUBy/RlE4FQF4dCj2AQXAiJQDCWQCAEBwIioEMQBgSAFhDAGghGi9XgHAhMNoSZgJkJei33UESv2+/4vD4TAQA7",
     "desc": "创建链接"
 }, {
+    "cmd": "fontSize",
+    "menu": "fontSize",
+    "icon": "text-height",
+    "desc": "字体大小"
+}, {
+    "cmd": "fontName",
+    "icon": "font",
+    "menu": "fontName",
+    "desc": "字体"
+}, {
+    "cmd": "foreColor",
+    "menu": "foreColor",
+    "icon": "eye",
+    "desc": "字体颜色"
+},/* {
  "cmd": "copy",
  "icon": "clipboard",
  "desc": "Copies the current selection to the clipboard. Clipboard capability must be enabled in the user.js preference file. See"
@@ -23,22 +41,12 @@ var commands = [{
     "cmd": "delete",
     "icon": "scissors",
     "desc": "Deletes the current selection."
-}, {
-    "cmd": "fontName",
-    "icon": "font",
-    "val": "'Inconsolata', monospace",
-    "desc": "Changes the font name for the selection or at the insertion point. This requires a font name string (\"Arial\" for example) to be passed in as a value argument."
-}, {
-    "cmd": "fontSize",
-    "val": "1-7",
-    "icon": "text-height",
-    "desc": "Changes the font size for the selection or at the insertion point. This requires an HTML font size (1-7) to be passed in as a value argument."
-}, {
-    "cmd": "foreColor",
-    "val": "rgba(0,0,0,.5)",
-    "icon": "eye",
-    "desc": "Changes a font color for the selection or at the insertion point. This requires a color value string to be passed in as a value argument."
-}, {
+},  {
+ "cmd": "heading",
+ "val": "h3",
+ "icon": "header",
+ "desc": "标题"
+ },{
     "cmd": "formatBlock",
     "icon": "flash",
     "desc": "Adds an HTML block-style tag around the line containing the current selection, replacing the block element containing the line if one exists (in Firefox, BLOCKQUOTE is the exception - it will wrap any containing block element). Requires a tag-name string to be passed in as a value argument. Virtually all block style tags can be used (eg. \"H1\", \"P\", \"DL\", \"BLOCKQUOTE\"). (Internet Explorer supports only heading tags H1 - H6, ADDRESS, and PRE, which must also include the tag delimiters &lt; &gt;, such as \"&lt;H1&gt;\".)"
@@ -46,11 +54,6 @@ var commands = [{
     "cmd": "forwardDelete",
     "icon": "long-arrow-left",
     "desc": "Deletes the character ahead of the cursor's position.  It is the same as hitting the delete key."
-}, {
-    "cmd": "heading",
-    "val": "h3",
-    "icon": "header",
-    "desc": "Adds a heading tag around a selection or insertion point line. Requires the tag-name string to be passed in as a value argument (i.e. \"H1\", \"H6\"). (Not supported by Internet Explorer and Safari.)"
 }, {
     "cmd": "hiliteColor",
     "val": "Orange",
@@ -139,11 +142,7 @@ var commands = [{
     "cmd": "superscript",
     "icon": "superscript",
     "desc": "Toggles superscript on/off for the selection or at the insertion point."
-}, {
-    "cmd": "underline",
-    "icon": "underline",
-    "desc": "Toggles underline on/off for the selection or at the insertion point."
-}, {
+},  {
     "cmd": "undo",
     "icon": "undo",
     "desc": "Undoes the last executed command."
@@ -188,20 +187,162 @@ function constructRegex(word) {
     return new RegExp('\\s' + word + '\\b', 'ig');
 }
 
+function getSelectedText() {
+    var selection = getSelection();
+
+    // 取得开始的文字
+    var anchorNode = selection.anchorNode;
+    var anchorOffset = selection.anchorOffset;
+    var focusNode = selection.focusNode;
+    var focusOffset = selection.focusOffset;
+
+    // 判断选择的方向
+    var isForward = isNodeBefore(anchorNode, focusNode);
+    var startNode;
+    var endNode;
+    var startOffset;
+    var endOffset;
+    if (isForward) {
+        startNode = anchorNode;
+        endNode = focusNode;
+        startOffset = anchorOffset;
+        endOffset = focusOffset;
+    } else {
+        startNode = focusNode;
+        endNode = anchorNode;
+        startOffset = focusOffset;
+        endOffset = anchorOffset;
+    }
+
+    var text1 = '';
+    if (startNode !== null) {
+        var startText = startNode.data;
+        text1 = startText.substring(startOffset);
+    }
+
+    // 取得结束的文字
+
+    var text2 = '';
+    if (endNode !== null) {
+        var endText = endNode.data;
+        text2 = endText.substring(0, endOffset);
+    }
+
+
+
+    //取得中间的文字
+    var middleText = '';
+    if (startNode !== null && endNode !== null) {
+        middleText = getMiddleText(startNode, endNode);
+    }
+
+    return text1 + middleText + text2;
+}
+
+function getMiddleText(startNode, endNode) {
+    if (startNode === null && endNode === null) {
+        return;
+    }
+
+    var pivot = startNode;
+    var middleText = '';
+    var text;
+    while(pivot !== endNode) {
+        text = '';
+        if (pivot.nextSibling === null) {
+            if (pivot.parentNode === null) {
+                break;
+            } else {
+                pivot = pivot.parentNode;
+            }
+        } else {
+            pivot = pivot.nextSibling;
+            text = traversal(pivot);
+        }
+        middleText += text;
+    }
+
+    return middleText;
+
+    // 遍历节点选择文字
+    function traversal(root) {
+        if (pivot === endNode) {
+            return '';
+        }
+        if (root.nodeType === 3) {
+            return root.nodeValue;
+        } else {
+            var text = '';
+            var childNodes = root.childNodes;
+            for (var i = 0; i < childNodes.length; i++) {
+                if (childNodes[i] === endNode) {
+                    pivot = endNode;
+                    break;
+                }
+                text += traversal(childNodes[i]);
+            }
+            return text;
+        }
+    }
+}
+
+function isNodeBefore(startNode, endNode) {
+    var startParents = getParents(startNode), endParents = getParents(endNode);
+    var count = Math.min(startParents.length, endParents.length);
+    var commonParent, startParent, endParent;
+    for (var i = 0; i < count; i++) {
+        startParent = startParents[startParents.length - i - 1];
+        endParent = endParents[endParents.length - i - 1];
+        if (startParent === endParent) {
+            commonParent = startParent;
+        } else {
+            var startPos = convertToArray(commonParent.childNodes).indexOf(startParent);
+            var endPos = convertToArray(commonParent.childNodes).indexOf(endParent);
+            return startPos < endPos;
+        }
+    }
+    return true;
+}
+
+function convertToArray(arrayLike) {
+    return Array.prototype.slice.apply(arrayLike);
+}
+
+function getParents(node) {
+    var parents = [];
+    if ( node !== null ) {
+        var pivot = node;
+        while(pivot.parentNode != null) {
+            parents.push(pivot.parentNode);
+            pivot = pivot.parentNode;
+        }
+    }
+
+    return parents;
+}
+
+
 function supported(cmd) {
     var css = !!document.queryCommandSupported(cmd.cmd) ? "btn-succes" : "btn-error"
     return css
 }
 
-function doCommand(cmdKey) {
+function doCommand(cmdKey, target) {
     var cmd = commandRelation[cmdKey];
     if (supported(cmd) === "btn-error") {
         alert("execCommand(“" + cmd.cmd + "”)\nis not supported in your browser");
         return;
     }
-    val = (typeof cmd.val !== "undefined") ? prompt("Value for " + cmd.cmd + "?", cmd.val) : "";
-    document.execCommand(cmd.cmd, false, (cmd.val || ""));
+
+    if (cmd.menu) {
+        var menu = document.getElementById('fontSize');
+        menu.style.display = 'block';
+        menu.style.left = target.offsetLeft;
+    } else {
+        document.execCommand(cmd.cmd, false, (cmd.val || getSelectedText()));
+    }
 }
+
 
 function statusCheck(buttons) {
     commands.forEach(function(command) {
@@ -229,22 +370,26 @@ function init() {
         html.push(temp);
     });
 
+    // 工具栏按钮点击事件
     var toolbar = document.querySelector(".tool-bar");
     toolbar.innerHTML = html.join('');
     toolbar.addEventListener('mousedown', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
         if (e.target.tagName === 'IMG') {
-            e.preventDefault();
-            doCommand(e.target.getAttribute('data-cmd'));
+            doCommand(e.target.getAttribute('data-cmd'), e.target.parentNode);
             e.target.className = toggleClass(e.target.className, 'on');
         }
     });
 
+    // 使用工具栏按钮
     var buttons = {};
     var allButtons = document.querySelectorAll('img.icon');
-    Array.prototype.slice.apply(allButtons).map(function(element) {
+    convertToArray(allButtons).map(function(element) {
         buttons[element.getAttribute('data-cmd')] = element;
     });
 
+    // 编辑区域点击事件
     var editor = document.getElementById('editor');
     editor.addEventListener('keyup', function() {
         statusCheck(buttons);
@@ -254,4 +399,32 @@ function init() {
     });
 }
 
+function menuInit() {
+    var menus = document.getElementById('menu-list');
+    menus.addEventListener('mousedown', function(event) {
+        event.preventDefault();
+        var target = event.target;
+        while (target !== null) {
+            if (target.tagName === 'LI') {
+                var value = target.value;
+                var cmd = target.parentNode.id;
+                document.execCommand(cmd, false, value);
+                target.parentNode.style.display = 'none';
+                break;
+            }
+            target = target.parentNode;
+        }
+        return false;
+    });
+
+    document.body.addEventListener('mousedown', function(event) {
+        for (var i = 0; i < menus.childNodes.length; i++) {
+            if (menus.childNodes[i].style.display === 'block') {
+                menus.childNodes[i].style.display = 'none';
+            }
+        }
+    });
+}
+
 init();
+menuInit();

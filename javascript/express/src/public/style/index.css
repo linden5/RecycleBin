@@ -31,20 +31,6 @@ li {
     text-align: left;
 }
 
-.tool-bar {
-    padding: 2em;
-    font-size: 10px;
-    border: 1px solid gainsboro;
-    zoom: 0.8;
-}
 
-.tool-bar i {
-    font-size: 1.2em;
-}
-
-.editor {
-    padding: 1em;
-    border: 1px solid gainsboro;
-}
 
 
