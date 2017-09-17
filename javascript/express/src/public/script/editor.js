@@ -323,7 +323,7 @@ function getParents(node) {
 
 
 function supported(cmd) {
-    var css = !!document.queryCommandSupported(cmd.cmd) ? "btn-succes" : "btn-error"
+    var css = document.queryCommandSupported(cmd.cmd) ? "btn-succes" : "btn-error"
     return css
 }
 
@@ -360,7 +360,7 @@ function init() {
     var html = [],
         template = '<span><code class="btn btn-xs %btnClass%" title="%desc%"><img class="icon" src="%icon%" data-cmd="%cmd%"/></code></span>';
 
-    commands.map(function(command, i) {
+    commands.map(function(command) {
         commandRelation[command.cmd] = command;
         var temp = template;
         temp = temp.replace(/%icon%/gi, command.icon);
@@ -417,7 +417,7 @@ function menuInit() {
         return false;
     });
 
-    document.body.addEventListener('mousedown', function(event) {
+    document.body.addEventListener('mousedown', function() {
         for (var i = 0; i < menus.childNodes.length; i++) {
             if (menus.childNodes[i].style.display === 'block') {
                 menus.childNodes[i].style.display = 'none';

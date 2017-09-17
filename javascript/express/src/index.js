@@ -18,6 +18,10 @@ app.get('/editor', function(req, res) {
     res.render('editor');
 });
 
+app.get('/editor', function(req, res) {
+    res.render('editor');
+});
+
 app.listen(3000, function() {
     console.log('Example app listening on port 3000!');
 });
