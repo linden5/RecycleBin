@@ -6,8 +6,8 @@ html
         include ../widget/header.pug
 
         div.main-container
-            h3 title
-            p paragraph1
-            p paragraph2
-            p paragraph3
-            p paragraph4
+            h3= blog.title
+            p= '发布于：' + blog.getCreateTime()
+            p= '最后更新于：' + blog.getLastModified()
+            p= blog.content
+        script(src='/script/blog.js')

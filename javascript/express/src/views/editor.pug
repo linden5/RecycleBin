@@ -10,6 +10,8 @@ html
         include ../widget/header.pug
 
         div.main-container
+            label 标题
+            input#title(type='text' placeholder='文章标题')
             div.tool-bar
             div.editor-wrapper
                 div.menus#menu-list
@@ -34,4 +36,5 @@ html
                     p paragraph2
                     p paragraph3
                     p paragraph4
+            button#submit 保存
         script(src='/script/editor.js')

@@ -10,7 +10,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.18.1",
     "express": "^4.15.4",
+    "mysql": "^2.14.1",
     "orm": "^3.2.4",
     "pug": "^2.0.0-rc.3"
   },

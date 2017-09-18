@@ -426,5 +426,28 @@ function menuInit() {
     });
 }
 
+function submitInit() {
+    document.getElementById('submit').onclick = function() {
+        var title = document.getElementById('title').value;
+        var content = document.getElementById('editor').innerHTML;
+
+        var xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+                if (xhr.status === 200) {
+                    alert(xhr.responseText);
+                } else {
+                    alert(xhr.status);
+                }
+            }
+        };
+        xhr.open('POST', '/blog/save', true);
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        var queryString = ['title=', encodeURIComponent(title), '&content=', encodeURIComponent(content)].join('');
+        xhr.send(queryString);
+    };
+}
+
 init();
 menuInit();
+submitInit();

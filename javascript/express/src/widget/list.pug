@@ -1,6 +1,7 @@
 ul.list
-    each val, index in [1,2,3,4,5,6,7,8,9,10]
+    each blog, index in blogs
         li
-            h5= 'title' + val
-                span= 'created at:' + new Date()
-            p= 'This is abstract' + val
+            a(href='/blog/' + blog.id)
+                h3= blog.title
+                span= '发布于:' + blog.getCreateTime()
+                p= '摘要：' + blog.content
