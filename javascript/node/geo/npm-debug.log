@@ -1,0 +1,637 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'F:\\Program Files\\nodejs\\node.exe',
+1 verbose cli   'C:\\Users\\lyx\\AppData\\Roaming\\npm\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'install',
+1 verbose cli   '--save',
+1 verbose cli   'oracledb' ]
+2 info using npm@3.10.9
+3 info using node@v6.11.2
+4 silly loadCurrentTree Starting
+5 silly install loadCurrentTree
+6 silly install readLocalPackageData
+7 silly fetchPackageMetaData oracledb
+8 silly fetchNamedPackageData oracledb
+9 silly mapToRegistry name oracledb
+10 silly mapToRegistry using default registry
+11 silly mapToRegistry registry https://registry.npm.taobao.org/
+12 silly mapToRegistry data Result {
+12 silly mapToRegistry   raw: 'oracledb',
+12 silly mapToRegistry   scope: null,
+12 silly mapToRegistry   escapedName: 'oracledb',
+12 silly mapToRegistry   name: 'oracledb',
+12 silly mapToRegistry   rawSpec: '',
+12 silly mapToRegistry   spec: 'latest',
+12 silly mapToRegistry   type: 'tag' }
+13 silly mapToRegistry uri https://registry.npm.taobao.org/oracledb
+14 verbose request uri https://registry.npm.taobao.org/oracledb
+15 verbose request no auth needed
+16 info attempt registry request try #1 at 18:26:23
+17 verbose request id 71e50d582206f0c5
+18 verbose etag "c7a9-j+LGc8pjYM00Ac3vITzee+yKXVE"
+19 http request GET https://registry.npm.taobao.org/oracledb
+20 http 304 https://registry.npm.taobao.org/oracledb
+21 verbose headers { date: 'Tue, 12 Dec 2017 10:26:12 GMT',
+21 verbose headers   connection: 'keep-alive',
+21 verbose headers   'x-current-requests': '1',
+21 verbose headers   vary: 'Origin',
+21 verbose headers   etag: '"c7a9-j+LGc8pjYM00Ac3vITzee+yKXVE"',
+21 verbose headers   'x-readtime': '18' }
+22 silly get cb [ 304,
+22 silly get   { date: 'Tue, 12 Dec 2017 10:26:12 GMT',
+22 silly get     connection: 'keep-alive',
+22 silly get     'x-current-requests': '1',
+22 silly get     vary: 'Origin',
+22 silly get     etag: '"c7a9-j+LGc8pjYM00Ac3vITzee+yKXVE"',
+22 silly get     'x-readtime': '18' } ]
+23 verbose etag https://registry.npm.taobao.org/oracledb from cache
+24 verbose get saving oracledb to C:\Users\lyx\AppData\Roaming\npm-cache\registry.npm.taobao.org\oracledb\.cache.json
+25 verbose correctMkdir C:\Users\lyx\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+26 silly install normalizeTree
+27 silly loadCurrentTree Finishing
+28 silly loadIdealTree Starting
+29 silly install loadIdealTree
+30 silly cloneCurrentTree Starting
+31 silly install cloneCurrentTreeToIdealTree
+32 silly cloneCurrentTree Finishing
+33 silly loadShrinkwrap Starting
+34 silly install loadShrinkwrap
+35 silly loadShrinkwrap Finishing
+36 silly loadAllDepsIntoIdealTree Starting
+37 silly install loadAllDepsIntoIdealTree
+38 silly resolveWithNewModule oracledb@1.13.1 checking installable status
+39 silly cache add args [ 'oracledb', null ]
+40 verbose cache add spec oracledb
+41 silly cache add parsed spec Result {
+41 silly cache add   raw: 'oracledb',
+41 silly cache add   scope: null,
+41 silly cache add   escapedName: 'oracledb',
+41 silly cache add   name: 'oracledb',
+41 silly cache add   rawSpec: '',
+41 silly cache add   spec: 'latest',
+41 silly cache add   type: 'tag' }
+42 silly addNamed oracledb@latest
+43 verbose addNamed "latest" is being treated as a dist-tag for oracledb
+44 info addNameTag [ 'oracledb', 'latest' ]
+45 silly mapToRegistry name oracledb
+46 silly mapToRegistry using default registry
+47 silly mapToRegistry registry https://registry.npm.taobao.org/
+48 silly mapToRegistry data Result {
+48 silly mapToRegistry   raw: 'oracledb',
+48 silly mapToRegistry   scope: null,
+48 silly mapToRegistry   escapedName: 'oracledb',
+48 silly mapToRegistry   name: 'oracledb',
+48 silly mapToRegistry   rawSpec: '',
+48 silly mapToRegistry   spec: 'latest',
+48 silly mapToRegistry   type: 'tag' }
+49 silly mapToRegistry uri https://registry.npm.taobao.org/oracledb
+50 verbose addNameTag registry:https://registry.npm.taobao.org/oracledb not in flight; fetching
+51 verbose get https://registry.npm.taobao.org/oracledb not expired, no request
+52 silly addNameTag next cb for oracledb with tag latest
+53 silly addNamed oracledb@1.13.1
+54 verbose addNamed "1.13.1" is a plain semver version for oracledb
+55 silly cache afterAdd oracledb@1.13.1
+56 verbose afterAdd C:\Users\lyx\AppData\Roaming\npm-cache\oracledb\1.13.1\package\package.json not in flight; writing
+57 verbose correctMkdir C:\Users\lyx\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+58 verbose afterAdd C:\Users\lyx\AppData\Roaming\npm-cache\oracledb\1.13.1\package\package.json written
+59 silly fetchNamedPackageData nan
+60 silly mapToRegistry name nan
+61 silly mapToRegistry using default registry
+62 silly mapToRegistry registry https://registry.npm.taobao.org/
+63 silly mapToRegistry data Result {
+63 silly mapToRegistry   raw: 'nan',
+63 silly mapToRegistry   scope: null,
+63 silly mapToRegistry   escapedName: 'nan',
+63 silly mapToRegistry   name: 'nan',
+63 silly mapToRegistry   rawSpec: '',
+63 silly mapToRegistry   spec: 'latest',
+63 silly mapToRegistry   type: 'tag' }
+64 silly mapToRegistry uri https://registry.npm.taobao.org/nan
+65 verbose request uri https://registry.npm.taobao.org/nan
+66 verbose request no auth needed
+67 info attempt registry request try #1 at 18:26:23
+68 verbose etag "23215-jEjMCFcHTo1KryuloJrROC8n5Bc"
+69 http request GET https://registry.npm.taobao.org/nan
+70 http 304 https://registry.npm.taobao.org/nan
+71 verbose headers { date: 'Tue, 12 Dec 2017 10:26:12 GMT',
+71 verbose headers   connection: 'keep-alive',
+71 verbose headers   'x-current-requests': '1',
+71 verbose headers   etag: '"23215-jEjMCFcHTo1KryuloJrROC8n5Bc"',
+71 verbose headers   'x-readtime': '20' }
+72 silly get cb [ 304,
+72 silly get   { date: 'Tue, 12 Dec 2017 10:26:12 GMT',
+72 silly get     connection: 'keep-alive',
+72 silly get     'x-current-requests': '1',
+72 silly get     etag: '"23215-jEjMCFcHTo1KryuloJrROC8n5Bc"',
+72 silly get     'x-readtime': '20' } ]
+73 verbose etag https://registry.npm.taobao.org/nan from cache
+74 verbose get saving nan to C:\Users\lyx\AppData\Roaming\npm-cache\registry.npm.taobao.org\nan\.cache.json
+75 verbose correctMkdir C:\Users\lyx\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+76 silly resolveWithNewModule nan@2.5.1 checking installable status
+77 silly cache add args [ 'nan@~2.5.0', null ]
+78 verbose cache add spec nan@~2.5.0
+79 silly cache add parsed spec Result {
+79 silly cache add   raw: 'nan@~2.5.0',
+79 silly cache add   scope: null,
+79 silly cache add   escapedName: 'nan',
+79 silly cache add   name: 'nan',
+79 silly cache add   rawSpec: '~2.5.0',
+79 silly cache add   spec: '>=2.5.0 <2.6.0',
+79 silly cache add   type: 'range' }
+80 silly addNamed nan@>=2.5.0 <2.6.0
+81 verbose addNamed ">=2.5.0 <2.6.0" is a valid semver range for nan
+82 silly addNameRange { name: 'nan', range: '>=2.5.0 <2.6.0', hasData: false }
+83 silly mapToRegistry name nan
+84 silly mapToRegistry using default registry
+85 silly mapToRegistry registry https://registry.npm.taobao.org/
+86 silly mapToRegistry data Result {
+86 silly mapToRegistry   raw: 'nan',
+86 silly mapToRegistry   scope: null,
+86 silly mapToRegistry   escapedName: 'nan',
+86 silly mapToRegistry   name: 'nan',
+86 silly mapToRegistry   rawSpec: '',
+86 silly mapToRegistry   spec: 'latest',
+86 silly mapToRegistry   type: 'tag' }
+87 silly mapToRegistry uri https://registry.npm.taobao.org/nan
+88 verbose addNameRange registry:https://registry.npm.taobao.org/nan not in flight; fetching
+89 verbose get https://registry.npm.taobao.org/nan not expired, no request
+90 silly addNameRange number 2 { name: 'nan', range: '>=2.5.0 <2.6.0', hasData: true }
+91 silly addNameRange versions [ 'nan',
+91 silly addNameRange   [ '2.8.0',
+91 silly addNameRange     '2.7.0',
+91 silly addNameRange     '2.6.2',
+91 silly addNameRange     '2.6.1',
+91 silly addNameRange     '2.6.0',
+91 silly addNameRange     '2.5.1',
+91 silly addNameRange     '2.5.0',
+91 silly addNameRange     '2.4.0',
+91 silly addNameRange     '2.3.5',
+91 silly addNameRange     '2.3.4',
+91 silly addNameRange     '2.3.3',
+91 silly addNameRange     '2.3.2',
+91 silly addNameRange     '2.3.1',
+91 silly addNameRange     '2.3.0',
+91 silly addNameRange     '2.2.1',
+91 silly addNameRange     '2.2.0',
+91 silly addNameRange     '2.1.0',
+91 silly addNameRange     '2.0.9',
+91 silly addNameRange     '2.0.8',
+91 silly addNameRange     '2.0.7',
+91 silly addNameRange     '2.0.6',
+91 silly addNameRange     '2.0.5',
+91 silly addNameRange     '2.0.4',
+91 silly addNameRange     '2.0.3',
+91 silly addNameRange     '2.0.2',
+91 silly addNameRange     '2.0.1',
+91 silly addNameRange     '2.0.0',
+91 silly addNameRange     '1.9.0',
+91 silly addNameRange     '1.8.4',
+91 silly addNameRange     '1.8.3',
+91 silly addNameRange     '1.8.2',
+91 silly addNameRange     '1.8.1',
+91 silly addNameRange     '1.8.0',
+91 silly addNameRange     '1.7.0',
+91 silly addNameRange     '1.6.2',
+91 silly addNameRange     '1.6.1',
+91 silly addNameRange     '1.5.3',
+91 silly addNameRange     '1.6.0',
+91 silly addNameRange     '1.5.2',
+91 silly addNameRange     '1.5.1',
+91 silly addNameRange     '1.4.3',
+91 silly addNameRange     '1.4.2',
+91 silly addNameRange     '1.5.0',
+91 silly addNameRange     '1.4.1',
+91 silly addNameRange     '1.4.0',
+91 silly addNameRange     '1.3.0',
+91 silly addNameRange     '1.2.0',
+91 silly addNameRange     '1.1.2',
+91 silly addNameRange     '1.1.1',
+91 silly addNameRange     '1.1.0',
+91 silly addNameRange     '1.0.0',
+91 silly addNameRange     '0.8.0',
+91 silly addNameRange     '0.7.1',
+91 silly addNameRange     '0.7.0',
+91 silly addNameRange     '0.6.0',
+91 silly addNameRange     '0.5.2',
+91 silly addNameRange     '0.5.1',
+91 silly addNameRange     '0.5.0',
+91 silly addNameRange     '0.4.4',
+91 silly addNameRange     '0.4.3',
+91 silly addNameRange     '0.4.2',
+91 silly addNameRange     '0.4.1',
+91 silly addNameRange     '0.4.0',
+91 silly addNameRange     '0.3.2',
+91 silly addNameRange     '0.3.1',
+91 silly addNameRange     '0.3.0',
+91 silly addNameRange     '0.3.0-wip2',
+91 silly addNameRange     '0.3.0-wip' ] ]
+92 silly addNamed nan@2.5.1
+93 verbose addNamed "2.5.1" is a plain semver version for nan
+94 silly cache afterAdd nan@2.5.1
+95 verbose afterAdd C:\Users\lyx\AppData\Roaming\npm-cache\nan\2.5.1\package\package.json not in flight; writing
+96 verbose correctMkdir C:\Users\lyx\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+97 verbose afterAdd C:\Users\lyx\AppData\Roaming\npm-cache\nan\2.5.1\package\package.json written
+98 silly loadAllDepsIntoIdealTree Finishing
+99 silly loadIdealTree Finishing
+100 silly currentTree geo@1.0.0
+100 silly currentTree +-- @types/node@6.0.86
+100 silly currentTree +-- balanced-match@1.0.0
+100 silly currentTree +-- boolbase@1.0.0
+100 silly currentTree +-- brace-expansion@1.1.8
+100 silly currentTree +-- bufferhelper@0.2.1
+100 silly currentTree +-- cheerio@1.0.0-rc.2
+100 silly currentTree +-- concat-map@0.0.1
+100 silly currentTree +-- core-util-is@1.0.2
+100 silly currentTree +-- css-select@1.2.0
+100 silly currentTree +-- css-what@2.1.0
+100 silly currentTree +-- dom-serializer@0.1.0
+100 silly currentTree | `-- domelementtype@1.1.3
+100 silly currentTree +-- domelementtype@1.3.0
+100 silly currentTree +-- domhandler@2.4.1
+100 silly currentTree +-- domutils@1.5.1
+100 silly currentTree +-- entities@1.1.1
+100 silly currentTree +-- exit@0.1.2
+100 silly currentTree +-- fs.realpath@1.0.0
+100 silly currentTree +-- glob@7.1.2
+100 silly currentTree +-- htmlparser2@3.9.2
+100 silly currentTree +-- iconv-lite@0.4.18
+100 silly currentTree +-- inflight@1.0.6
+100 silly currentTree +-- inherits@2.0.3
+100 silly currentTree +-- isarray@1.0.0
+100 silly currentTree +-- jasmine-core@2.7.0
+100 silly currentTree +-- jasmine@2.7.0
+100 silly currentTree +-- lodash@4.17.4
+100 silly currentTree +-- minimatch@3.0.4
+100 silly currentTree +-- nan@2.6.2
+100 silly currentTree +-- nth-check@1.0.1
+100 silly currentTree +-- once@1.4.0
+100 silly currentTree +-- parse5@3.0.2
+100 silly currentTree +-- path-is-absolute@1.0.1
+100 silly currentTree +-- process-nextick-args@1.0.7
+100 silly currentTree +-- readable-stream@2.3.3
+100 silly currentTree +-- safe-buffer@5.1.1
+100 silly currentTree +-- string_decoder@1.0.3
+100 silly currentTree +-- util-deprecate@1.0.2
+100 silly currentTree `-- wrappy@1.0.2
+101 silly idealTree geo@1.0.0
+101 silly idealTree +-- @types/node@6.0.86
+101 silly idealTree +-- balanced-match@1.0.0
+101 silly idealTree +-- boolbase@1.0.0
+101 silly idealTree +-- brace-expansion@1.1.8
+101 silly idealTree +-- bufferhelper@0.2.1
+101 silly idealTree +-- cheerio@1.0.0-rc.2
+101 silly idealTree +-- concat-map@0.0.1
+101 silly idealTree +-- core-util-is@1.0.2
+101 silly idealTree +-- css-select@1.2.0
+101 silly idealTree +-- css-what@2.1.0
+101 silly idealTree +-- dom-serializer@0.1.0
+101 silly idealTree | `-- domelementtype@1.1.3
+101 silly idealTree +-- domelementtype@1.3.0
+101 silly idealTree +-- domhandler@2.4.1
+101 silly idealTree +-- domutils@1.5.1
+101 silly idealTree +-- entities@1.1.1
+101 silly idealTree +-- exit@0.1.2
+101 silly idealTree +-- fs.realpath@1.0.0
+101 silly idealTree +-- glob@7.1.2
+101 silly idealTree +-- htmlparser2@3.9.2
+101 silly idealTree +-- iconv-lite@0.4.18
+101 silly idealTree +-- inflight@1.0.6
+101 silly idealTree +-- inherits@2.0.3
+101 silly idealTree +-- isarray@1.0.0
+101 silly idealTree +-- jasmine-core@2.7.0
+101 silly idealTree +-- jasmine@2.7.0
+101 silly idealTree +-- lodash@4.17.4
+101 silly idealTree +-- minimatch@3.0.4
+101 silly idealTree +-- nan@2.6.2
+101 silly idealTree +-- nth-check@1.0.1
+101 silly idealTree +-- once@1.4.0
+101 silly idealTree +-- oracledb@1.13.1
+101 silly idealTree | `-- nan@2.5.1
+101 silly idealTree +-- parse5@3.0.2
+101 silly idealTree +-- path-is-absolute@1.0.1
+101 silly idealTree +-- process-nextick-args@1.0.7
+101 silly idealTree +-- readable-stream@2.3.3
+101 silly idealTree +-- safe-buffer@5.1.1
+101 silly idealTree +-- string_decoder@1.0.3
+101 silly idealTree +-- util-deprecate@1.0.2
+101 silly idealTree `-- wrappy@1.0.2
+102 silly generateActionsToTake Starting
+103 silly install generateActionsToTake
+104 silly generateActionsToTake Finishing
+105 silly diffTrees action count 2
+106 silly diffTrees add nan@2.5.1
+107 silly diffTrees add oracledb@1.13.1
+108 silly decomposeActions action count 16
+109 silly decomposeActions fetch nan@2.5.1
+110 silly decomposeActions extract nan@2.5.1
+111 silly decomposeActions test nan@2.5.1
+112 silly decomposeActions preinstall nan@2.5.1
+113 silly decomposeActions build nan@2.5.1
+114 silly decomposeActions install nan@2.5.1
+115 silly decomposeActions postinstall nan@2.5.1
+116 silly decomposeActions finalize nan@2.5.1
+117 silly decomposeActions fetch oracledb@1.13.1
+118 silly decomposeActions extract oracledb@1.13.1
+119 silly decomposeActions test oracledb@1.13.1
+120 silly decomposeActions preinstall oracledb@1.13.1
+121 silly decomposeActions build oracledb@1.13.1
+122 silly decomposeActions install oracledb@1.13.1
+123 silly decomposeActions postinstall oracledb@1.13.1
+124 silly decomposeActions finalize oracledb@1.13.1
+125 silly runTopLevelLifecycles Starting
+126 silly executeActions Starting
+127 silly install executeActions
+128 silly doSerial global-install 0
+129 silly doParallel fetch 2
+130 verbose correctMkdir C:\Users\lyx\AppData\Roaming\npm-cache\_locks correctMkdir not in flight; initializing
+131 verbose lock using C:\Users\lyx\AppData\Roaming\npm-cache\_locks\staging-244b8e12746a45f7.lock for D:\Resource_E\github_repo\else_practice\javascript\node\geo\node_modules\.staging
+132 silly doParallel extract 2
+133 silly extract nan@2.5.1
+134 silly extract oracledb@1.13.1
+135 verbose unbuild node_modules\.staging\oracledb-11acbff7
+136 verbose unbuild node_modules\.staging\nan-80024dc9
+137 silly gentlyRm D:\Resource_E\github_repo\else_practice\javascript\node\geo\node_modules\.staging\oracledb-11acbff7 is being purged from base D:\Resource_E\github_repo\else_practice\javascript\node\geo
+138 verbose gentlyRm don't care about contents; nuking D:\Resource_E\github_repo\else_practice\javascript\node\geo\node_modules\.staging\oracledb-11acbff7
+139 silly gentlyRm D:\Resource_E\github_repo\else_practice\javascript\node\geo\node_modules\.staging\nan-80024dc9 is being purged from base D:\Resource_E\github_repo\else_practice\javascript\node\geo
+140 verbose gentlyRm don't care about contents; nuking D:\Resource_E\github_repo\else_practice\javascript\node\geo\node_modules\.staging\nan-80024dc9
+141 verbose tar unpack C:\Users\lyx\AppData\Roaming\npm-cache\oracledb\1.13.1\package.tgz
+142 verbose tar unpacking to D:\Resource_E\github_repo\else_practice\javascript\node\geo\node_modules\.staging\oracledb-11acbff7
+143 silly gentlyRm D:\Resource_E\github_repo\else_practice\javascript\node\geo\node_modules\.staging\oracledb-11acbff7 is being purged
+144 verbose gentlyRm don't care about contents; nuking D:\Resource_E\github_repo\else_practice\javascript\node\geo\node_modules\.staging\oracledb-11acbff7
+145 verbose tar unpack C:\Users\lyx\AppData\Roaming\npm-cache\nan\2.5.1\package.tgz
+146 verbose tar unpacking to D:\Resource_E\github_repo\else_practice\javascript\node\geo\node_modules\.staging\nan-80024dc9
+147 silly gentlyRm D:\Resource_E\github_repo\else_practice\javascript\node\geo\node_modules\.staging\nan-80024dc9 is being purged
+148 verbose gentlyRm don't care about contents; nuking D:\Resource_E\github_repo\else_practice\javascript\node\geo\node_modules\.staging\nan-80024dc9
+149 silly gunzTarPerm modes [ '777', '666' ]
+150 silly gunzTarPerm modes [ '777', '666' ]
+151 silly gunzTarPerm extractEntry package.json
+152 silly gunzTarPerm modified mode [ 'package.json', 420, 438 ]
+153 silly gunzTarPerm extractEntry package.json
+154 silly gunzTarPerm modified mode [ 'package.json', 436, 438 ]
+155 silly gunzTarPerm extractEntry README.md
+156 silly gunzTarPerm modified mode [ 'README.md', 420, 438 ]
+157 silly gunzTarPerm extractEntry index.js
+158 silly gunzTarPerm modified mode [ 'index.js', 420, 438 ]
+159 silly gunzTarPerm extractEntry README.md
+160 silly gunzTarPerm modified mode [ 'README.md', 436, 438 ]
+161 silly gunzTarPerm extractEntry include_dirs.js
+162 silly gunzTarPerm modified mode [ 'include_dirs.js', 436, 438 ]
+163 silly gunzTarPerm extractEntry CHANGELOG.md
+164 silly gunzTarPerm modified mode [ 'CHANGELOG.md', 420, 438 ]
+165 silly gunzTarPerm extractEntry nan_converters.h
+166 silly gunzTarPerm modified mode [ 'nan_converters.h', 436, 438 ]
+167 silly gunzTarPerm extractEntry CHANGELOG.md
+168 silly gunzTarPerm modified mode [ 'CHANGELOG.md', 436, 438 ]
+169 silly gunzTarPerm extractEntry LICENSE.md
+170 silly gunzTarPerm modified mode [ 'LICENSE.md', 436, 438 ]
+171 silly gunzTarPerm extractEntry LICENSE.md
+172 silly gunzTarPerm modified mode [ 'LICENSE.md', 420, 438 ]
+173 silly gunzTarPerm extractEntry doc/node_misc.md
+174 silly gunzTarPerm modified mode [ 'doc/node_misc.md', 436, 438 ]
+175 silly gunzTarPerm extractEntry binding.gyp
+176 silly gunzTarPerm modified mode [ 'binding.gyp', 420, 438 ]
+177 silly gunzTarPerm extractEntry lib/connection.js
+178 silly gunzTarPerm modified mode [ 'lib/connection.js', 420, 438 ]
+179 silly gunzTarPerm extractEntry doc/asyncworker.md
+180 silly gunzTarPerm modified mode [ 'doc/asyncworker.md', 436, 438 ]
+181 silly gunzTarPerm extractEntry doc/callback.md
+182 silly gunzTarPerm modified mode [ 'doc/callback.md', 436, 438 ]
+183 silly gunzTarPerm extractEntry lib/lob.js
+184 silly gunzTarPerm modified mode [ 'lib/lob.js', 420, 438 ]
+185 silly gunzTarPerm extractEntry lib/oracledb.js
+186 silly gunzTarPerm modified mode [ 'lib/oracledb.js', 420, 438 ]
+187 silly gunzTarPerm extractEntry lib/pool.js
+188 silly gunzTarPerm modified mode [ 'lib/pool.js', 420, 438 ]
+189 silly gunzTarPerm extractEntry lib/querystream.js
+190 silly gunzTarPerm modified mode [ 'lib/querystream.js', 420, 438 ]
+191 silly gunzTarPerm extractEntry doc/converters.md
+192 silly gunzTarPerm modified mode [ 'doc/converters.md', 436, 438 ]
+193 silly gunzTarPerm extractEntry doc/errors.md
+194 silly gunzTarPerm modified mode [ 'doc/errors.md', 436, 438 ]
+195 silly gunzTarPerm extractEntry lib/resultset.js
+196 silly gunzTarPerm modified mode [ 'lib/resultset.js', 420, 438 ]
+197 silly gunzTarPerm extractEntry lib/util.js
+198 silly gunzTarPerm modified mode [ 'lib/util.js', 420, 438 ]
+199 silly gunzTarPerm extractEntry src/dpi/include/dpi.h
+200 silly gunzTarPerm modified mode [ 'src/dpi/include/dpi.h', 420, 438 ]
+201 silly gunzTarPerm extractEntry doc/maybe_types.md
+202 silly gunzTarPerm modified mode [ 'doc/maybe_types.md', 436, 438 ]
+203 silly gunzTarPerm extractEntry doc/methods.md
+204 silly gunzTarPerm modified mode [ 'doc/methods.md', 436, 438 ]
+205 silly gunzTarPerm extractEntry doc/new.md
+206 silly gunzTarPerm modified mode [ 'doc/new.md', 436, 438 ]
+207 silly gunzTarPerm extractEntry src/dpi/include/dpiCommon.h
+208 silly gunzTarPerm modified mode [ 'src/dpi/include/dpiCommon.h', 420, 438 ]
+209 silly gunzTarPerm extractEntry src/dpi/include/dpiConn.h
+210 silly gunzTarPerm modified mode [ 'src/dpi/include/dpiConn.h', 420, 438 ]
+211 silly gunzTarPerm extractEntry doc/buffers.md
+212 silly gunzTarPerm modified mode [ 'doc/buffers.md', 436, 438 ]
+213 silly gunzTarPerm extractEntry doc/object_wrappers.md
+214 silly gunzTarPerm modified mode [ 'doc/object_wrappers.md', 436, 438 ]
+215 silly gunzTarPerm extractEntry src/dpi/include/dpiDateTimeArray.h
+216 silly gunzTarPerm modified mode [ 'src/dpi/include/dpiDateTimeArray.h', 420, 438 ]
+217 silly gunzTarPerm extractEntry src/dpi/include/dpiEnv.h
+218 silly gunzTarPerm modified mode [ 'src/dpi/include/dpiEnv.h', 420, 438 ]
+219 silly gunzTarPerm extractEntry doc/persistent.md
+220 silly gunzTarPerm modified mode [ 'doc/persistent.md', 436, 438 ]
+221 silly gunzTarPerm extractEntry doc/scopes.md
+222 silly gunzTarPerm modified mode [ 'doc/scopes.md', 436, 438 ]
+223 silly gunzTarPerm extractEntry src/dpi/include/dpiException.h
+224 silly gunzTarPerm modified mode [ 'src/dpi/include/dpiException.h', 420, 438 ]
+225 silly gunzTarPerm extractEntry src/dpi/include/dpiLob.h
+226 silly gunzTarPerm modified mode [ 'src/dpi/include/dpiLob.h', 420, 438 ]
+227 silly gunzTarPerm extractEntry doc/script.md
+228 silly gunzTarPerm modified mode [ 'doc/script.md', 436, 438 ]
+229 silly gunzTarPerm extractEntry doc/string_bytes.md
+230 silly gunzTarPerm modified mode [ 'doc/string_bytes.md', 436, 438 ]
+231 silly gunzTarPerm extractEntry src/dpi/include/dpiPool.h
+232 silly gunzTarPerm modified mode [ 'src/dpi/include/dpiPool.h', 420, 438 ]
+233 silly gunzTarPerm extractEntry src/dpi/include/dpiStmt.h
+234 silly gunzTarPerm modified mode [ 'src/dpi/include/dpiStmt.h', 420, 438 ]
+235 silly gunzTarPerm extractEntry doc/v8_internals.md
+236 silly gunzTarPerm modified mode [ 'doc/v8_internals.md', 436, 438 ]
+237 silly gunzTarPerm extractEntry doc/v8_misc.md
+238 silly gunzTarPerm modified mode [ 'doc/v8_misc.md', 436, 438 ]
+239 silly gunzTarPerm extractEntry src/dpi/src/dpiExceptionImpl.cpp
+240 silly gunzTarPerm modified mode [ 'src/dpi/src/dpiExceptionImpl.cpp', 420, 438 ]
+241 silly gunzTarPerm extractEntry src/dpi/src/dpiCommon.cpp
+242 silly gunzTarPerm modified mode [ 'src/dpi/src/dpiCommon.cpp', 420, 438 ]
+243 silly gunzTarPerm extractEntry src/dpi/src/dpiConnImpl.h
+244 silly gunzTarPerm modified mode [ 'src/dpi/src/dpiConnImpl.h', 420, 438 ]
+245 silly gunzTarPerm extractEntry src/dpi/src/dpiDateTimeArrayImpl.cpp
+246 silly gunzTarPerm modified mode [ 'src/dpi/src/dpiDateTimeArrayImpl.cpp', 420, 438 ]
+247 silly gunzTarPerm extractEntry nan.h
+248 silly gunzTarPerm modified mode [ 'nan.h', 436, 438 ]
+249 silly gunzTarPerm extractEntry nan_callbacks.h
+250 silly gunzTarPerm modified mode [ 'nan_callbacks.h', 436, 438 ]
+251 silly gunzTarPerm extractEntry src/dpi/src/dpiDateTimeArrayImpl.h
+252 silly gunzTarPerm modified mode [ 'src/dpi/src/dpiDateTimeArrayImpl.h', 420, 438 ]
+253 silly gunzTarPerm extractEntry src/dpi/src/dpiEnv.cpp
+254 silly gunzTarPerm modified mode [ 'src/dpi/src/dpiEnv.cpp', 420, 438 ]
+255 silly gunzTarPerm extractEntry nan_callbacks_12_inl.h
+256 silly gunzTarPerm modified mode [ 'nan_callbacks_12_inl.h', 436, 438 ]
+257 silly gunzTarPerm extractEntry nan_callbacks_pre_12_inl.h
+258 silly gunzTarPerm modified mode [ 'nan_callbacks_pre_12_inl.h', 436, 438 ]
+259 silly gunzTarPerm extractEntry src/dpi/src/dpiEnvImpl.cpp
+260 silly gunzTarPerm modified mode [ 'src/dpi/src/dpiEnvImpl.cpp', 420, 438 ]
+261 silly gunzTarPerm extractEntry src/dpi/src/dpiEnvImpl.h
+262 silly gunzTarPerm modified mode [ 'src/dpi/src/dpiEnvImpl.h', 420, 438 ]
+263 silly gunzTarPerm extractEntry src/dpi/src/dpiException.cpp
+264 silly gunzTarPerm modified mode [ 'src/dpi/src/dpiException.cpp', 420, 438 ]
+265 silly gunzTarPerm extractEntry src/dpi/src/dpiConnImpl.cpp
+266 silly gunzTarPerm modified mode [ 'src/dpi/src/dpiConnImpl.cpp', 420, 438 ]
+267 silly gunzTarPerm extractEntry nan_converters_43_inl.h
+268 silly gunzTarPerm modified mode [ 'nan_converters_43_inl.h', 436, 438 ]
+269 silly gunzTarPerm extractEntry nan_converters_pre_43_inl.h
+270 silly gunzTarPerm modified mode [ 'nan_converters_pre_43_inl.h', 436, 438 ]
+271 silly gunzTarPerm extractEntry nan_implementation_12_inl.h
+272 silly gunzTarPerm modified mode [ 'nan_implementation_12_inl.h', 436, 438 ]
+273 silly gunzTarPerm extractEntry nan_implementation_pre_12_inl.h
+274 silly gunzTarPerm modified mode [ 'nan_implementation_pre_12_inl.h', 436, 438 ]
+275 silly gunzTarPerm extractEntry nan_maybe_43_inl.h
+276 silly gunzTarPerm modified mode [ 'nan_maybe_43_inl.h', 436, 438 ]
+277 silly gunzTarPerm extractEntry nan_maybe_pre_43_inl.h
+278 silly gunzTarPerm modified mode [ 'nan_maybe_pre_43_inl.h', 436, 438 ]
+279 silly gunzTarPerm extractEntry nan_new.h
+280 silly gunzTarPerm modified mode [ 'nan_new.h', 436, 438 ]
+281 silly gunzTarPerm extractEntry src/dpi/src/dpiExceptionImpl.h
+282 silly gunzTarPerm modified mode [ 'src/dpi/src/dpiExceptionImpl.h', 420, 438 ]
+283 silly gunzTarPerm extractEntry src/dpi/src/dpiLob.cpp
+284 silly gunzTarPerm modified mode [ 'src/dpi/src/dpiLob.cpp', 420, 438 ]
+285 silly gunzTarPerm extractEntry nan_object_wrap.h
+286 silly gunzTarPerm modified mode [ 'nan_object_wrap.h', 436, 438 ]
+287 silly gunzTarPerm extractEntry nan_persistent_12_inl.h
+288 silly gunzTarPerm modified mode [ 'nan_persistent_12_inl.h', 436, 438 ]
+289 silly gunzTarPerm extractEntry nan_persistent_pre_12_inl.h
+290 silly gunzTarPerm modified mode [ 'nan_persistent_pre_12_inl.h', 436, 438 ]
+291 silly gunzTarPerm extractEntry src/dpi/src/dpiPoolImpl.cpp
+292 silly gunzTarPerm modified mode [ 'src/dpi/src/dpiPoolImpl.cpp', 420, 438 ]
+293 silly gunzTarPerm extractEntry src/dpi/src/dpiPoolImpl.h
+294 silly gunzTarPerm modified mode [ 'src/dpi/src/dpiPoolImpl.h', 420, 438 ]
+295 silly gunzTarPerm extractEntry nan_private.h
+296 silly gunzTarPerm modified mode [ 'nan_private.h', 436, 438 ]
+297 silly gunzTarPerm extractEntry nan_string_bytes.h
+298 silly gunzTarPerm modified mode [ 'nan_string_bytes.h', 436, 438 ]
+299 silly gunzTarPerm extractEntry src/dpi/src/dpiStmtImpl.cpp
+300 silly gunzTarPerm modified mode [ 'src/dpi/src/dpiStmtImpl.cpp', 420, 438 ]
+301 silly gunzTarPerm extractEntry src/dpi/src/dpiStmtImpl.h
+302 silly gunzTarPerm modified mode [ 'src/dpi/src/dpiStmtImpl.h', 420, 438 ]
+303 silly gunzTarPerm extractEntry nan_typedarray_contents.h
+304 silly gunzTarPerm modified mode [ 'nan_typedarray_contents.h', 436, 438 ]
+305 silly gunzTarPerm extractEntry nan_weak.h
+306 silly gunzTarPerm modified mode [ 'nan_weak.h', 436, 438 ]
+307 silly gunzTarPerm extractEntry src/dpi/src/dpiUtils.cpp
+308 silly gunzTarPerm modified mode [ 'src/dpi/src/dpiUtils.cpp', 420, 438 ]
+309 silly gunzTarPerm extractEntry src/dpi/src/dpiUtils.h
+310 silly gunzTarPerm modified mode [ 'src/dpi/src/dpiUtils.h', 420, 438 ]
+311 silly gunzTarPerm extractEntry tools/package.json
+312 silly gunzTarPerm modified mode [ 'tools/package.json', 436, 438 ]
+313 silly gunzTarPerm extractEntry tools/README.md
+314 silly gunzTarPerm modified mode [ 'tools/README.md', 436, 438 ]
+315 silly gunzTarPerm extractEntry src/njs/src/njsOracle.cpp
+316 silly gunzTarPerm modified mode [ 'src/njs/src/njsOracle.cpp', 420, 438 ]
+317 silly gunzTarPerm extractEntry src/njs/src/njsConnection.cpp
+318 silly gunzTarPerm modified mode [ 'src/njs/src/njsConnection.cpp', 420, 438 ]
+319 silly gunzTarPerm extractEntry tools/1to2.js
+320 silly gunzTarPerm modified mode [ 'tools/1to2.js', 509, 511 ]
+321 silly gunzTarPerm extractEntry src/njs/src/njsIntLob.cpp
+322 silly gunzTarPerm modified mode [ 'src/njs/src/njsIntLob.cpp', 420, 438 ]
+323 silly gunzTarPerm extractEntry src/njs/src/njsIntLob.h
+324 silly gunzTarPerm modified mode [ 'src/njs/src/njsIntLob.h', 420, 438 ]
+325 silly gunzTarPerm extractEntry src/njs/src/njsMessages.cpp
+326 silly gunzTarPerm modified mode [ 'src/njs/src/njsMessages.cpp', 420, 438 ]
+327 silly gunzTarPerm extractEntry src/njs/src/njsMessages.h
+328 silly gunzTarPerm modified mode [ 'src/njs/src/njsMessages.h', 420, 438 ]
+329 silly gunzTarPerm extractEntry src/njs/src/njsConnection.h
+330 silly gunzTarPerm modified mode [ 'src/njs/src/njsConnection.h', 420, 438 ]
+331 silly gunzTarPerm extractEntry src/njs/src/njsOracle.h
+332 silly gunzTarPerm modified mode [ 'src/njs/src/njsOracle.h', 420, 438 ]
+333 silly gunzTarPerm extractEntry src/njs/src/njsPool.cpp
+334 silly gunzTarPerm modified mode [ 'src/njs/src/njsPool.cpp', 420, 438 ]
+335 silly gunzTarPerm extractEntry src/njs/src/njsPool.h
+336 silly gunzTarPerm modified mode [ 'src/njs/src/njsPool.h', 420, 438 ]
+337 silly gunzTarPerm extractEntry src/njs/src/njsResultSet.cpp
+338 silly gunzTarPerm modified mode [ 'src/njs/src/njsResultSet.cpp', 420, 438 ]
+339 silly gunzTarPerm extractEntry src/njs/src/njsResultSet.h
+340 silly gunzTarPerm modified mode [ 'src/njs/src/njsResultSet.h', 420, 438 ]
+341 silly gunzTarPerm extractEntry src/njs/src/njsUtils.h
+342 silly gunzTarPerm modified mode [ 'src/njs/src/njsUtils.h', 420, 438 ]
+343 silly gentlyRm D:\Resource_E\github_repo\else_practice\javascript\node\geo\node_modules\.staging\nan-80024dc9\node_modules is being purged
+344 verbose gentlyRm don't care about contents; nuking D:\Resource_E\github_repo\else_practice\javascript\node\geo\node_modules\.staging\nan-80024dc9\node_modules
+345 silly gentlyRm D:\Resource_E\github_repo\else_practice\javascript\node\geo\node_modules\.staging\oracledb-11acbff7\node_modules is being purged
+346 verbose gentlyRm don't care about contents; nuking D:\Resource_E\github_repo\else_practice\javascript\node\geo\node_modules\.staging\oracledb-11acbff7\node_modules
+347 silly doParallel preinstall 2
+348 silly preinstall nan@2.5.1 D:\Resource_E\github_repo\else_practice\javascript\node\geo\node_modules\.staging\nan-80024dc9
+349 info lifecycle nan@2.5.1~preinstall: nan@2.5.1
+350 silly preinstall oracledb@1.13.1 D:\Resource_E\github_repo\else_practice\javascript\node\geo\node_modules\.staging\oracledb-11acbff7
+351 info lifecycle oracledb@1.13.1~preinstall: oracledb@1.13.1
+352 silly lifecycle nan@2.5.1~preinstall: no script for preinstall, continuing
+353 silly lifecycle oracledb@1.13.1~preinstall: no script for preinstall, continuing
+354 silly doReverseSerial remove 0
+355 silly doSerial move 0
+356 silly doSerial finalize 2
+357 silly finalize D:\Resource_E\github_repo\else_practice\javascript\node\geo\node_modules\oracledb\node_modules\nan
+358 silly finalize D:\Resource_E\github_repo\else_practice\javascript\node\geo\node_modules\oracledb
+359 silly doSerial build 2
+360 silly build nan@2.5.1
+361 info linkStuff nan@2.5.1
+362 silly linkStuff nan@2.5.1 has D:\Resource_E\github_repo\else_practice\javascript\node\geo\node_modules\oracledb\node_modules as its parent node_modules
+363 verbose linkBins nan@2.5.1
+364 verbose linkMans nan@2.5.1
+365 silly build oracledb@1.13.1
+366 info linkStuff oracledb@1.13.1
+367 silly linkStuff oracledb@1.13.1 has D:\Resource_E\github_repo\else_practice\javascript\node\geo\node_modules as its parent node_modules
+368 verbose linkBins oracledb@1.13.1
+369 verbose linkMans oracledb@1.13.1
+370 silly doSerial global-link 0
+371 silly doParallel update-linked 0
+372 silly doSerial install 2
+373 silly install nan@2.5.1 D:\Resource_E\github_repo\else_practice\javascript\node\geo\node_modules\.staging\nan-80024dc9
+374 info lifecycle nan@2.5.1~install: nan@2.5.1
+375 silly lifecycle nan@2.5.1~install: no script for install, continuing
+376 silly install oracledb@1.13.1 D:\Resource_E\github_repo\else_practice\javascript\node\geo\node_modules\.staging\oracledb-11acbff7
+377 info lifecycle oracledb@1.13.1~install: oracledb@1.13.1
+378 verbose lifecycle oracledb@1.13.1~install: unsafe-perm in lifecycle true
+379 verbose lifecycle oracledb@1.13.1~install: PATH: C:\Users\lyx\AppData\Roaming\npm\node_modules\npm\bin\node-gyp-bin;D:\Resource_E\github_repo\else_practice\javascript\node\geo\node_modules\oracledb\node_modules\.bin;D:\Resource_E\github_repo\else_practice\javascript\node\geo\node_modules\.bin;F:\oraclexe\app\oracle\product\11.2.0\server\bin;;F:\Delphi7_Ent\Bin;F:\Delphi7_Ent\Projects\Bpl\;C:\ProgramData\Oracle\Java\javapath;F:\devTools\java\jdk1.8.0_25\bin;F:\devTools\java\jdk1.8.0_25\jre\bin;C:\windows\system32;C:\windows;C:\windows\System32\Wbem;C:\windows\System32\WindowsPowerShell\v1.0\;C:\Users\lyx\Desktop\shortcut;F:\devTools\apache-tomcat-8.0.22\lib;F:\devTools\apache-tomcat-8.0.22\bin;F:\devTools\Ruby22-x64\bin;F:\devTools\apache-maven-3.1.1\bin;F:\devTools\apache-ant-1.9.6-bin\apache-ant-1.9.6\bin;C:\Program Files (x86)\MySQL\MySQL Fabric 1.5 & MySQL Utilities 1.5\;C:\Program Files (x86)\MySQL\MySQL Fabric 1.5 & MySQL Utilities 1.5\Doctrine extensions for PHP\;F:\gradle-2.14.1-all\gradle-2.14.1/bin;F:\Python27;F:\Python34;F:\devTools\Git\cmd;f:\Delphi7_Ent\bin;f:\Delphi7_Ent\Projects\bpl;F:\tortoisesvn\bin;F:\Program Files\nodejs\;F:\python36\Scripts\;F:\python36\;C:\windows\system32;f:\devTools\Ruby22-x64\bin;f:\Ora10InstantClient;C:\Program Files\MySQL\MySQL Server 5.7\bin;F:\MongoDB\Server\3.2\bin;F:\devTools\Git\bin;F:\devTools\Git\cmd;F:\sqlite-tools-win32-x86-3130000;F:\Microsoft VS Code\bin;F:\sonar-scanner-cli-3.0.3.778-windows\sonar-scanner-3.0.3.778-windows\bin;C:\Users\lyx\AppData\Roaming\npm;F:\xampp\php;C:\Users\lyx\AppData\Local\GitHubDesktop\bin
+380 verbose lifecycle oracledb@1.13.1~install: CWD: D:\Resource_E\github_repo\else_practice\javascript\node\geo\node_modules\oracledb
+381 silly lifecycle oracledb@1.13.1~install: Args: [ '/d /s /c', 'node-gyp rebuild' ]
+382 silly lifecycle oracledb@1.13.1~install: Returned: code: 1  signal: null
+383 info lifecycle oracledb@1.13.1~install: Failed to exec install script
+384 verbose unlock done using C:\Users\lyx\AppData\Roaming\npm-cache\_locks\staging-244b8e12746a45f7.lock for D:\Resource_E\github_repo\else_practice\javascript\node\geo\node_modules\.staging
+385 silly rollbackFailedOptional Starting
+386 silly rollbackFailedOptional Finishing
+387 silly runTopLevelLifecycles Finishing
+388 silly install printInstalled
+389 warn geo@1.0.0 No repository field.
+390 verbose If you need help, you may report this error at:
+390 verbose     <https://github.com/npm/npm/issues>
+391 verbose stack Error: oracledb@1.13.1 install: `node-gyp rebuild`
+391 verbose stack Exit status 1
+391 verbose stack     at EventEmitter.<anonymous> (C:\Users\lyx\AppData\Roaming\npm\node_modules\npm\lib\utils\lifecycle.js:255:16)
+391 verbose stack     at emitTwo (events.js:106:13)
+391 verbose stack     at EventEmitter.emit (events.js:191:7)
+391 verbose stack     at ChildProcess.<anonymous> (C:\Users\lyx\AppData\Roaming\npm\node_modules\npm\lib\utils\spawn.js:40:14)
+391 verbose stack     at emitTwo (events.js:106:13)
+391 verbose stack     at ChildProcess.emit (events.js:191:7)
+391 verbose stack     at maybeClose (internal/child_process.js:891:16)
+391 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:226:5)
+392 verbose pkgid oracledb@1.13.1
+393 verbose cwd D:\Resource_E\github_repo\else_practice\javascript\node\geo
+394 error Windows_NT 6.1.7601
+395 error argv "F:\\Program Files\\nodejs\\node.exe" "C:\\Users\\lyx\\AppData\\Roaming\\npm\\node_modules\\npm\\bin\\npm-cli.js" "install" "--save" "oracledb"
+396 error node v6.11.2
+397 error npm  v3.10.9
+398 error code ELIFECYCLE
+399 error oracledb@1.13.1 install: `node-gyp rebuild`
+399 error Exit status 1
+400 error Failed at the oracledb@1.13.1 install script 'node-gyp rebuild'.
+400 error Make sure you have the latest version of node.js and npm installed.
+400 error If you do, this is most likely a problem with the oracledb package,
+400 error not with npm itself.
+400 error Tell the author that this fails on your system:
+400 error     node-gyp rebuild
+400 error You can get information on how to open an issue for this project with:
+400 error     npm bugs oracledb
+400 error Or if that isn't available, you can get their info via:
+400 error     npm owner ls oracledb
+400 error There is likely additional logging output above.
+401 verbose exit [ 1, true ]
